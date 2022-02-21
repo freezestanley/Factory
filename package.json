@@ -1,0 +1,23 @@
+{
+  "name": "factory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freezestanley/Factory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freezestanley/Factory/issues"
+  },
+  "homepage": "https://github.com/freezestanley/Factory#readme",
+  "engines": {
+        "node": ">=10",
+        "pnpm": ">=6.28.0"
+    }
+}
