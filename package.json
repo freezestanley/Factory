@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lintcss": "stylelint src/**/*.css --fix",
+    "lintless": "stylelint --color --fix src/**/*.{html,css,less} --custom-syntax postcss-less --cache",
+    "lintscss": "stylelint --color --fix src/**/*.{html,css,scss} --custom-syntax postcss-scss --cache",
+    "lintsass": "stylelint --color --fix src/**/*.{html,css,sass} --custom-syntax postcss-sass --cache"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,20 @@
   },
   "homepage": "https://github.com/freezestanley/Factory#readme",
   "engines": {
-        "node": ">=10",
-        "pnpm": ">=6.28.0"
-    }
+    "node": ">=10",
+    "pnpm": ">=6.28.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.6",
+    "postcss-less": "^6.0.0",
+    "postcss-sass": "^0.5.0",
+    "postcss-scss": "^4.0.3",
+    "postcss-syntax": "^0.36.2",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.5.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0"
+  }
 }

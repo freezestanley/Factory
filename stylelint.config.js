@@ -1,0 +1,35 @@
+module.exports = {
+  processors: [],
+  extends: ["stylelint-config-recommended", "stylelint-config-prettier"],
+  plugins: ["stylelint-prettier", "stylelint-order"],
+  ignoreFiles: ["**/*.js", "**/*.md"],
+  indentation: [2, { severity: "warning" }],
+  rules: {
+    "prettier/prettier": [true, { singleQuote: true, tabWidth: 2 }],
+    indentation: 2,
+    "block-no-empty": true,
+    "at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: [
+          "extend",
+          "at-root",
+          "debug",
+          "warn",
+          "error",
+          "if",
+          "else",
+          "for",
+          "each",
+          "while",
+          "mixin",
+          "include",
+          "content",
+          "return",
+          "function",
+        ],
+      },
+    ],
+  },
+  configBasedir: process.cwd(),
+};

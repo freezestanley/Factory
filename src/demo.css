@@ -1,0 +1,13 @@
+body {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.box {
+  width: 100px;
+  box-sizing: content-box;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}

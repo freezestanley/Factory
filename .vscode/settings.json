@@ -10,7 +10,7 @@
   "editor.detectIndentation": false, // 不检查缩进,保存后按统一设置
   "editor.tabSize": 2, // 意思就是你要改成几个缩进
   "editor.fontSize": 14, // 字体大小16
-  "editor.codeActionsOnSaveTimeout": 1000,
+  "editor.codeActionsOnSaveTimeout": 2000,
   "editor.suggestSelection": "first",
   "editor.suggest.snippetsPreventQuickSuggestions": false, // 打开代码片段填空时的智能感知
   "editor.formatOnSave": true, // 保存的时候自动格式化
@@ -120,5 +120,13 @@
     // 保存时候eslint fix
     "source.fixAll.eslint": true, // "source.fixAll": false
     "source.fixAll.stylelint": true // stylelint fix true
-  }
+  },
+  "cSpell.words": ["stylelint"],
+  /**--stylelint start--**/
+  "css.validate": false, // 防止编辑器内置linter与插件冲突设置
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true, // 启用stylelint插件
+  "stylelint.configBasedir": "./node_modules/stylelint-prettier"
+  /**--stylelint end--**/
 }
