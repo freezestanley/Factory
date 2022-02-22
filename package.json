@@ -6,8 +6,7 @@
   "scripts": {
     "lintcss": "stylelint src/**/*.css --fix",
     "lintless": "stylelint --color --fix src/**/*.{html,css,less} --custom-syntax postcss-less --cache",
-    "lintscss": "stylelint --color --fix src/**/*.{html,css,scss} --custom-syntax postcss-scss --cache",
-    "lintsass": "stylelint --color --fix src/**/*.{html,css,sass} --custom-syntax postcss-sass --cache"
+    "lintscss": "stylelint --color --fix src/**/*.{html,css,scss} --custom-syntax postcss-scss --cache"
   },
   "repository": {
     "type": "git",
@@ -24,6 +23,8 @@
     "pnpm": ">=6.28.0"
   },
   "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
     "postcss": "^8.4.6",
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",

@@ -21,7 +21,9 @@
 
   /**------------------------prettier start---------------------**/
   "prettier.eslintIntegration": true, // 让prettier使用eslint的代码格式进行校验
-  "prettier.semi": true, // 去掉代码结尾的分号
+  "prettier.semi": false, // 去掉代码结尾的分号
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
   "prettier.singleQuote": true, // 使用带引号替代双引号
   "prettier.trailingComma": "es5", // 在对象或数组最后一个元素后面是否加逗号
   "prettier.arrowParens": "avoid", // (x) => {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号
@@ -113,7 +115,6 @@
   "eslint.enable": true,
   "eslint.run": "onSave",
   "eslint.debug": true,
-
   /**--eslint end--**/
 
   "editor.codeActionsOnSave": {
@@ -122,6 +123,7 @@
     "source.fixAll.stylelint": true // stylelint fix true
   },
   "cSpell.words": ["stylelint"],
+
   /**--stylelint start--**/
   "css.validate": false, // 防止编辑器内置linter与插件冲突设置
   "less.validate": false,
