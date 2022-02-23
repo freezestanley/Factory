@@ -4,8 +4,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:react/jsx-runtime'
-    // 'plugin:prettier/recommended'
+    'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended'
   ],
   plugins: ['prettier', 'babel', '@typescript-eslint'],
   parser: '@typescript-eslint/parser',
