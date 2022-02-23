@@ -1,4 +1,4 @@
 type propType = {}
-const demo = function (param: propType): String {
-  return 'asdasdf'
+export const demo = function (param: propType): any {
+  return param
 }
