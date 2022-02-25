@@ -20,7 +20,7 @@
         __webpack_require__
       ) => {
         eval(
-          '__webpack_require__.r(__webpack_exports__);\nvar app = function app() {\n  return /*#__PURE__*/React.createElement("div", null);\n};\n\n\n\n//# sourceURL=webpack://factory/./src/index.tsx?'
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "app": () => (/* binding */ app)\n/* harmony export */ });\nvar app = function app() {\n  return \'asdf\';\n};\n\n//# sourceURL=webpack://factory/./src/index.tsx?'
         )
 
         /***/
@@ -33,6 +33,35 @@
   /******/ var __webpack_require__ = {}
   /******/
   /************************************************************************/
+  /******/ /* webpack/runtime/define property getters */
+  /******/ ;(() => {
+    /******/ // define getter functions for harmony exports
+    /******/ __webpack_require__.d = (exports, definition) => {
+      /******/ for (var key in definition) {
+        /******/ if (
+          __webpack_require__.o(definition, key) &&
+          !__webpack_require__.o(exports, key)
+        ) {
+          /******/ Object.defineProperty(exports, key, {
+            enumerable: true,
+            get: definition[key]
+          })
+          /******/
+        }
+        /******/
+      }
+      /******/
+    }
+    /******/
+  })()
+  /******/
+  /******/ /* webpack/runtime/hasOwnProperty shorthand */
+  /******/ ;(() => {
+    /******/ __webpack_require__.o = (obj, prop) =>
+      Object.prototype.hasOwnProperty.call(obj, prop)
+    /******/
+  })()
+  /******/
   /******/ /* webpack/runtime/make namespace object */
   /******/ ;(() => {
     /******/ // define __esModule on exports

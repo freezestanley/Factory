@@ -5,5 +5,9 @@ module.exports = merge(BaseConfig, {
   mode: 'production',
   stats: {
     children: false // 不输出子模块的打包信息
+  },
+  devtool: 'eval-cheap-module-source-map',
+  cache: {
+    allowCollectingMemory: true
   }
 })

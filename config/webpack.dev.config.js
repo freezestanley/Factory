@@ -3,5 +3,6 @@ const BaseConfig = require('./webpack.base.config')
 
 module.exports = merge(BaseConfig, {
   mode: 'development',
-  stats: 'errors-only'
+  stats: 'errors-only',
+  devtool: 'eval-cheap-module-source-map'
 })

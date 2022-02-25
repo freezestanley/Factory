@@ -3,3 +3,4 @@ node_modules
 .stylelintcache
 pnpm-lock.yaml
 */.eslintcache
+dist
