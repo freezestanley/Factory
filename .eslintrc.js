@@ -7,7 +7,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:prettier/recommended'
   ],
-  plugins: ['prettier', 'babel', '@typescript-eslint'],
+  plugins: ['babel', '@typescript-eslint', 'react', 'react-hooks', 'prettier'],
   parser: '@typescript-eslint/parser',
   env: {
     browser: true,
@@ -28,7 +28,7 @@ module.exports = {
   },
   ignorePatterns: ['node_modules/*', './config/**/*.js', 'config/*'],
   rules: {
-    'no-unused-vars': 2, // 未没被使用的变量
+    'no-unused-vars': 0, // 未没被使用的变量
     'no-cond-assign': 2,
     'no-debugger': 'warn',
     'no-dupe-args': 'error',
@@ -57,7 +57,7 @@ module.exports = {
       }
     ],
     'babel/no-invalid-this': 1,
-    'babel/object-curly-spacing': 1,
+    'babel/object-curly-spacing': 0,
     'babel/quotes': 0,
     'babel/semi': 0,
     'babel/no-unused-expressions': 1,

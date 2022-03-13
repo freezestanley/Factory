@@ -3,13 +3,9 @@ module.exports = {
     [
       'postcss-preset-env',
       {
+        // Options
         stage: 3,
-        browsers: [
-          'last 1 version',
-          '> 1%',
-          'maintained node versions',
-          'not dead'
-        ]
+        browsers: ['> 1%', 'last 2 versions']
       }
     ]
   ]
