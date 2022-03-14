@@ -85,7 +85,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -94,7 +94,8 @@ module.exports = {
               sourceMap: false,
               importLoaders: 1,
               modules: {
-                localIdentName: '[path][local]-[hash:base64:5]'
+                auto: true,
+                localIdentName: '[path]__[name]__[local]--[hash:base64:5]'
               }
             }
           },
@@ -104,7 +105,7 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -113,7 +114,21 @@ module.exports = {
               sourceMap: false,
               importLoaders: 1,
               modules: {
-                localIdentName: '[path][local]-[hash:base64:5]'
+                mode: (resourcePath) => {
+                  if (/pure.less$/i.test(resourcePath)) {
+                    return 'pure'
+                  }
+
+                  if (/global.less$/i.test(resourcePath)) {
+                    return 'global'
+                  }
+
+                  return 'local'
+                },
+                localIdentName: '[path][local]-[hash:base64:5]',
+                exportLocalsConvention: function (name) {
+                  return name
+                }
               }
             }
           },
@@ -129,7 +144,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {

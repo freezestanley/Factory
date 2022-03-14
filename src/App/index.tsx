@@ -16,18 +16,18 @@ import tu from './1.jpg'
 // const Book = React.lazy(() => import('@/Book'))
 // const Home = Lazy('@/Book')
 
-let cx = classNames.bind(Style)
+// let cx = classNames.bind(Style)
 
 const App = () => {
-  let className = cx({
-    App: true
-  })
+  // let className = cx({
+  //   demo: true
+  // })
   return (
-    <div className={className}>
-      {/* <img src={tu} /> */}
-      <Book />
+    <div className={Style.demo}>
+      {/* <Book />
       <Home />
-      <Shop />
+      <Shop /> */}
+      {JSON.stringify(Style)}
       this is App test 1231231231231231231
     </div>
   )
