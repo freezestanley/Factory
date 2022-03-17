@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const { extendDefaultPlugins } = require('svgo')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 // const TinyimgPlugin = require('tinyimg-webpack-plugin')
 
 module.exports = merge(BaseConfig, {
@@ -28,41 +29,41 @@ module.exports = merge(BaseConfig, {
       }),
       new CssMinimizerPlugin({
         exclude: /\/node_modules/
-      }),
-      new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.imageminMinify,
-          options: {
-            // Lossless optimization with custom option
-            // Feel free to experiment with options for better result for you
-            plugins: [
-              ['gifsicle', { interlaced: true }],
-              ['jpegtran', { progressive: true }],
-              ['optipng', { optimizationLevel: 5 }],
-              // Svgo configuration here https://github.com/svg/svgo#configuration
-              [
-                'svgo',
-                {
-                  plugins: [
-                    {
-                      name: 'removeViewBox',
-                      active: false
-                    },
-                    {
-                      name: 'addAttributesToSVGElement',
-                      params: {
-                        overrides: {
-                          attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }]
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        }
       })
+      // new ImageMinimizerPlugin({
+      //   minimizer: {
+      //     implementation: ImageMinimizerPlugin.imageminMinify,
+      //     options: {
+      //       // Lossless optimization with custom option
+      //       // Feel free to experiment with options for better result for you
+      //       plugins: [
+      //         ['gifsicle', { interlaced: true }],
+      //         ['jpegtran', { progressive: true }],
+      //         ['optipng', { optimizationLevel: 5 }]
+      //         // Svgo configuration here https://github.com/svg/svgo#configuration
+      //         // [
+      //         //   'svgo',
+      //         //   {
+      //         //     plugins: [
+      //         //       {
+      //         //         name: 'removeViewBox',
+      //         //         active: false
+      //         //       },
+      //         //       {
+      //         //         name: 'addAttributesToSVGElement',
+      //         //         params: {
+      //         //           overrides: {
+      //         //             attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }]
+      //         //           }
+      //         //         }
+      //         //       }
+      //         //     ]
+      //         //   }
+      //         // ]
+      //       ]
+      //     }
+      //   }
+      // })
     ],
     runtimeChunk: {
       name: (entrypoint) => `runtime~${entrypoint.name}`
@@ -103,7 +104,24 @@ module.exports = merge(BaseConfig, {
       chunkFilename: 'style/[contenthash:3].[id].css?v=[contenthash]',
       ignoreOrder: false,
       linkType: 'text/css'
+    }),
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true,
+      cacheId: 'webpack-pwa',
+      runtimeCaching: [
+        // 配置路由请求缓存
+        {
+          urlPattern: /.*\.js/, // 匹配文件
+          handler: 'NetworkFirst' // 网络优先
+        },
+        {
+          urlPattern: /.*\.[html|css|png|jpg]/, // 匹配文件
+          handler: 'StaleWhileRevalidate' // 网络优先
+        }
+      ]
     })
-    // new TinyimgPlugin({ logged: true })
   ]
 })
