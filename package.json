@@ -15,7 +15,8 @@
     "lint:scss": "stylelint --color --fix src/**/*.{html,css,scss} --custom-syntax postcss-scss --cache",
     "compress": "tinyit ./src ./src -key=HVm5yFJFTBDVsSfmVX083ZQShzLqZvM3 -filter=true",
     "prepare": "husky install",
-    "test": "jest --coverage --cache  --color"
+    "test": "jest --coverage --cache  --color",
+    "precommit": "npm run lint:less && npm run lint:ts && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -129,10 +130,10 @@
     "swr": "^1.2.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "eslint --quiet --fix --cache",
-    "src/**/*.{less,sass,scss,css}": "stylelint --fix",
+    "src/**/*.{js,jsx,ts,tsx}": ["eslint --quiet --fix --cache", "git add"],
+    "src/**/*.{less,sass,scss,css}": ["stylelint --fix", "git add"],
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
-      "prettier --write"
+      "prettier --write", "git add"
     ]
   }
 }
