@@ -20,8 +20,6 @@ import tu from './1.jpg'
 // const Home = Lazy('@/Book')
 
 // let cx = classNames.bind(Style)
-
-AudioBuffer()
 const App = () => {
   // let className = cx({
   //   demo: true
@@ -37,5 +35,4 @@ const App = () => {
     </div>
   )
 }
-
 export default App
