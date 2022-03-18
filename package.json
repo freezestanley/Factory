@@ -8,7 +8,7 @@
     "analyzer": "cross-env NODE_ENV=analyzer webpack -c ./config/analy.config.js",
     "prd": "cross-env NODE_ENV=production webpack -c ./config/webpack.prd.config.js",
     "dev": "cross-env NODE_ENV=development webpack serve --color -c ./config/webpack.dev.config.js",
-    "pretty:code": "prettier --write \"{src,mock}/**/*.{js,ts,tsx,css,less}\"",
+    "pretty:code": "prettier --write \"{src,mock}/**/*.{js,ts,tsx,css,less,md,json}\"",
     "lint:ts": "tsc --noEmit && eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix --cache",
     "lint:css": "stylelint src/**/*.css --fix",
     "lint:less": "stylelint --color --fix src/**/*.{html,css,less} --custom-syntax postcss-less --cache",
@@ -133,6 +133,9 @@
     "src/**/*.{js,ts,jsx,tsx}": ["eslint --fix", "prettier --write"],
     "src/**/*.{css,less}": [
       "stylelint --fix --custom-syntax postcss-less --cache",
+      "prettier --write"
+    ],
+    "**/*.{md,json}": [
       "prettier --write"
     ]
   }
