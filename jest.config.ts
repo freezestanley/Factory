@@ -12,7 +12,9 @@ export default {
 
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/private/var/folders/w3/r3g__n_d4hbdbr9bx3nh3ry00000gn/T/jest_dx",
-
+  moduleNameMapper: {
+    '\\.(css|less)$': 'identity-obj-proxy'
+  },
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
 
@@ -26,20 +28,13 @@ export default {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: ['/node_modules/'],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
+  coverageReporters: ['json', 'text', 'lcov', 'clover'],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,

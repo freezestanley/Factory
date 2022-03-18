@@ -26,7 +26,15 @@ module.exports = {
     project: './tsconfig.json',
     extraFileExtensions: ['.ts', '.tsx', '.js', '.jsx', '.vue']
   },
-  ignorePatterns: ['node_modules/*', './config/**/*.js', 'config/*', '*.js'],
+  ignorePatterns: [
+    'node_modules/*',
+    './config/**/*.js',
+    'config/*',
+    '*.js',
+    '*.test.js',
+    '*.test.tsx',
+    '*.test.ts'
+  ],
   rules: {
     'no-unused-vars': 0, // 未没被使用的变量
     'no-cond-assign': 2,

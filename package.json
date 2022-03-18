@@ -14,7 +14,8 @@
     "lint-less": "stylelint --color --fix src/**/*.{html,css,less} --custom-syntax postcss-less --cache",
     "lint-scss": "stylelint --color --fix src/**/*.{html,css,scss} --custom-syntax postcss-scss --cache",
     "compress": "tinyit ./src ./src -key=HVm5yFJFTBDVsSfmVX083ZQShzLqZvM3 -filter=true",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest --coverage --cache  --color"
   },
   "repository": {
     "type": "git",

@@ -4,3 +4,8 @@ node_modules
 pnpm-lock.yaml
 */.eslintcache
 dist
+*/__snapshots__
+__snapshots__
+*/__snapshots__/*
+coverage
+coverage/*

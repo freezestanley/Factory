@@ -31,7 +31,7 @@ const App = () => {
       <Home />
       <Shop /> */}
       {/* <img src={A} /> */}
-      {JSON.stringify(Style)}
+      {/* {JSON.stringify(Style)} */}
       this is App test 2222
     </div>
   )
