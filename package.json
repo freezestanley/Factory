@@ -130,7 +130,7 @@
     "swr": "^1.2.2"
   },
   "lint-staged": {
-    "src/*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
+    "src/App/index.tsx": ["eslint --fix", "prettier --write"],
     "**/*.{css,less}": [
       "stylelint --fix --custom-syntax postcss-less --cache",
       "prettier --write"
