@@ -21,6 +21,7 @@ import tu from './1.jpg'
 
 // let cx = classNames.bind(Style)
 
+AudioBuffer()
 const App = () => {
   // let className = cx({
   //   demo: true
