@@ -12,5 +12,5 @@ describe('App', () => {
 it('should take a snapshot', () => {
   const { asFragment } = render(<Example />)
 
-  expect(asFragment(<Example />)).toMatchSnapshot()
+  expect(asFragment()).toMatchSnapshot()
 })
