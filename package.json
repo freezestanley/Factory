@@ -130,6 +130,6 @@
     "swr": "^1.2.2"
   },
   "lint-staged": {
-    "*.js": "eslint --quiet --fix --cache"
+    "*.ts": "eslint --quiet --fix --cache"
   }
 }
