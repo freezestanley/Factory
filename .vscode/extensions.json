@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "stylelint.vscode-stylelint",
-    "dracula-theme.theme-dracula"
+    "dracula-theme.theme-dracula",
+    "dbaeumer.vscode-eslint"
   ]
 }

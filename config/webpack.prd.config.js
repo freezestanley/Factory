@@ -4,10 +4,9 @@ const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
-const { extendDefaultPlugins } = require('svgo')
+// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+// const { extendDefaultPlugins } = require('svgo')
 const WorkboxPlugin = require('workbox-webpack-plugin')
-// const TinyimgPlugin = require('tinyimg-webpack-plugin')
 
 module.exports = merge(BaseConfig, {
   mode: 'production',
