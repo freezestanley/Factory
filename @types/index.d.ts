@@ -18,8 +18,7 @@ declare module '*.svg' {
   export default url
 }
 
-interface MyWindow extends Window {
-  abc(): void
+interface Window {
+  BUILD: string
 }
-
-declare var window: MyWindow
+declare const Mode: string

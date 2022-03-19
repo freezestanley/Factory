@@ -38,7 +38,7 @@ module.exports = {
   rules: {
     'no-unused-vars': 0, // 未没被使用的变量
     'no-cond-assign': 2,
-    'no-debugger': 'warn',
+    'no-debugger': 0,
     'no-dupe-args': 'error',
     'no-caller': 'error',
     'no-unmodified-loop-condition': 'error',

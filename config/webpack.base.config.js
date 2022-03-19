@@ -16,6 +16,8 @@ const isEnvProduction =
   process.env.NODE_ENV === 'production' ||
   process.env.NODE_ENV === 'development'
 
+const localClass = `${require('../package.json').name}_[local]_[hash:base64:5]`
+
 module.exports = {
   entry: {
     app: {
@@ -95,7 +97,7 @@ module.exports = {
               importLoaders: 1,
               modules: {
                 auto: true,
-                localIdentName: '[path]__[name]__[local]--[hash:base64:5]'
+                localIdentName: localClass
               }
             }
           },
@@ -125,10 +127,13 @@ module.exports = {
 
                   return 'local'
                 },
-                localIdentName: '[path][local]-[hash:base64:5]',
-                exportLocalsConvention: function (name) {
-                  return name
-                }
+                localIdentName: localClass
+                // exportLocalsConvention: function (name) {
+                //   console.log('@@@@@@@@@@@@@@@@@@@@@@@@@')
+                //   console.log(name)
+                //   console.log('@@@@@@@@@@@@@@@@@@@@@@@@@')
+                //   return name
+                // }
               }
             }
           },
@@ -153,7 +158,7 @@ module.exports = {
               sourceMap: false,
               importLoaders: 1,
               modules: {
-                localIdentName: '[path][local]-[hash:base64:5]'
+                localIdentName: localClass
               }
             }
           },
@@ -179,9 +184,7 @@ module.exports = {
       _: 'lodash'
     }),
     new webpack.DefinePlugin({
-      'process.env': {
-        BUILD: JSON.stringify(`${process.env.NODE_ENV}`)
-      }
+      Mode: JSON.stringify(process.env.NODE_ENV)
     }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -244,7 +247,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.jsx', '.less', '.css', '.wasm'], // 后缀名自动补全
     alias: {
-      '@': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, '../src'),
+      '@P': path.resolve(__dirname, '../src/Pages'),
+      '@A': path.resolve(__dirname, '../src/Api'),
+      '@T': path.resolve(__dirname, '../src/Theme'),
+      '@U': path.resolve(__dirname, '../src/Utils')
     }
   }
 }

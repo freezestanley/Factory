@@ -85,6 +85,7 @@
     "less-loader": "^10.2.0",
     "lint-staged": "^12.3.7",
     "mini-css-extract-plugin": "^2.6.0",
+    "msw": "^0.39.2",
     "postcss": "^8.4.12",
     "postcss-less": "^6.0.0",
     "postcss-loader": "^6.2.1",
@@ -127,10 +128,14 @@
     "react-activation": "^0.9.11",
     "react-dom": "^17.0.2",
     "react-loadable": "^5.5.0",
+    "react-router-dom": "^6.2.2",
     "swr": "^1.2.2"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,jsx,tsx}": ["eslint --fix", "prettier --write"],
+    "src/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
     "src/**/*.{css,less}": [
       "stylelint --fix --custom-syntax postcss-less --cache",
       "prettier --write"

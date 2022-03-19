@@ -19,9 +19,10 @@
     "paths": {
       "@": ["../src"],
       "@/*": ["../src/*"],
-      "@API": ["../api"],
-      "@T": ["../theme"],
-      "@U": ["../utils"]
+      "@P": ["../src/Pages"],
+      "@A": ["../src/Api"],
+      "@T": ["../src/Theme"],
+      "@U": ["../src/Utils"]
     },
     "emitDecoratorMetadata": true
   },
