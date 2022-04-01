@@ -2,6 +2,7 @@
   "recommendations": [
     "stylelint.vscode-stylelint",
     "dracula-theme.theme-dracula",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "antfu.file-nesting"
   ]
 }
