@@ -1,4 +1,6 @@
 import React from 'react'
-
-const Header = () => <div>this is Header</div>
-export default Header
+type HeaderType = {
+  title?: string
+}
+const Header = (props: HeaderType) => <div>{props.title}</div>
+export default React.memo(Header)

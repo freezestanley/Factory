@@ -1,0 +1,22 @@
+.Layer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  & > div {
+    &:nth-child(2) {
+      flex: 1;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+  }
+}
+.Box {
+  background: #f00;
+}

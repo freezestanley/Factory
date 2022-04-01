@@ -1,11 +1,29 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import App from './Pages/App'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AppRouter from './Router'
+
 import './global.less'
 
-ReactDom.render(<App />, document.getElementById('app'))
+const Application = () => {
+  return (
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route index element={<Car />} />
+    //     <Route path="invoices" element={<App />}>
+    //       <Route path=":invoiceId" element={<Shop />} />
+    //       <Route path="sent" element={<Book />} />
+    //       <Route index element={<Car />} />
+    //     </Route>
+    //   </Routes>
+    // </BrowserRouter>
+  )
+}
 
+ReactDom.render(<Application />, document.getElementById('app'))
 // eslint-disable-next-line no-undef
 if (Mode === 'production') {
   if ('serviceWorker' in navigator) {
@@ -20,4 +38,8 @@ if (Mode === 'production') {
         })
     })
   }
+}
+// eslint-disable-next-line
+if (module.hot) {
+  module.hot.accept()
 }

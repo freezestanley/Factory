@@ -17,12 +17,11 @@
     "moduleResolution": "node",
     "typeRoots": ["@types", "./node_modules/@types"],
     "paths": {
-      "@": ["../src"],
       "@/*": ["../src/*"],
-      "@P": ["../src/Pages"],
-      "@A": ["../src/Api"],
-      "@T": ["../src/Theme"],
-      "@U": ["../src/Utils"]
+      "@P/*": ["../src/Pages/*"],
+      "@A/*": ["../src/Api/*"],
+      "@T/*": ["../src/Theme/*"],
+      "@U/*": ["../src/Utils/*"]
     },
     "emitDecoratorMetadata": true
   },

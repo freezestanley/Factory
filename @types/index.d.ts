@@ -21,4 +21,7 @@ declare module '*.svg' {
 interface Window {
   BUILD: string
 }
+declare let module: {
+  hot?: { accept: function }
+}
 declare const Mode: string
