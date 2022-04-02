@@ -27,10 +27,8 @@ const Layer = (type: layerType) => {
         {headerDisplay && type.header
           ? React.cloneElement(type.header, { title: headTitle })
           : null}
-        231231231
       </div>
       <div>
-        ======{JSON.stringify(Style)}=======
         {type.children}
         <Outlet
           context={[
@@ -42,7 +40,6 @@ const Layer = (type: layerType) => {
             setHeadTitle
           ]}
         />
-        231231231
       </div>
       <div>{footerDisplay && type.footer ? type.footer : null}</div>
     </div>

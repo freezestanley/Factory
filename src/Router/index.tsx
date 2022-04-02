@@ -32,7 +32,7 @@ export default function () {
             // <Routes>
             //   <Route path="shop" element={<Header />} />
             // </Routes>
-            <Header />
+            <Header title={'AAA'} />
           }
           footer={
             // <Routes>
