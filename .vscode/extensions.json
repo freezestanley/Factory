@@ -1,8 +1,11 @@
 {
   "recommendations": [
-    "stylelint.vscode-stylelint",
     "dracula-theme.theme-dracula",
     "dbaeumer.vscode-eslint",
-    "antfu.file-nesting"
+    "antfu.file-nesting",
+    "firsttris.vscode-jest-runner",
+    "oderwat.indent-rainbow",
+    "rvest.vs-code-prettier-eslint",
+    "formulahendry.code-runner"
   ]
 }

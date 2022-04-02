@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppRouter from './Router'
-
 import './global.less'
 
 const Application = () => {

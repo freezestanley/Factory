@@ -4,7 +4,7 @@
   "breadcrumbs.enabled": true, // 打开面包屑导航
   "debug.toolBarLocation": "docked", // debugger 置顶
   "terminal.integrated.copyOnSelection": true, // terminal 开启选中复制
-  "typescript.updateImportsOnFileMove.enabled": "always", // 重命名或移动文件时，启用或禁用自动更新导入路径
+  "typescript.updateImportsOnFileMove.enabled": "always", // 重命名或移动文件时,启用或禁用自动更新导入路径
   /**--editor start--**/
   "editor.wordWrap": "on", //文字折行
   "editor.detectIndentation": false, // 不检查缩进,保存后按统一设置
@@ -28,8 +28,8 @@
   "typescript.format.semicolons": "remove",
   "prettier.singleQuote": true, // 使用带引号替代双引号
   "prettier.trailingComma": "es5", // 在对象或数组最后一个元素后面是否加逗号
-  "prettier.arrowParens": "avoid", // (x) => {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号
-  "prettier.bracketSpacing": true, // 在对象，数组括号与文字之间加空格 "{ foo: bar }"
+  "prettier.arrowParens": "avoid", // (x) => {} 箭头函数参数只有一个时是否要有小括号。avoid:省略括号
+  "prettier.bracketSpacing": true, // 在对象,数组括号与文字之间加空格 "{ foo: bar }"
   "prettier.endOfLine": "auto", // 结尾是 \n \r \n\r auto
   "[json]": {
     "editor.quickSuggestions": {
@@ -130,6 +130,14 @@
   "less.validate": false,
   "scss.validate": false,
   "stylelint.enable": true, // 启用stylelint插件
-  "stylelint.configBasedir": "./node_modules/stylelint-prettier"
+  "stylelint.configBasedir": "./node_modules/stylelint-prettier",
   /**--stylelint end--**/
+
+  /**--filer nesting start-**/
+  "explorer.experimental.fileNesting.enabled": true,
+  "explorer.experimental.fileNesting.expand": false,
+  "explorer.experimental.fileNesting.patterns": {
+    "index.tsx": "index*.less,index*.sass,index*.scss,index*.css,index*.jpg,index*.svg,index*.json,index.*"
+  }
+  /**--filer nesting end--**/
 }

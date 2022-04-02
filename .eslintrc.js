@@ -72,6 +72,18 @@ module.exports = {
     'babel/valid-typeof': 1
   },
   settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', require('path').resolve(__dirname, './src')],
+          ['@P', require('path').resolve(__dirname, './src/Pages')],
+          ['@A', require('path').resolve(__dirname, './src/Api')],
+          ['@T', require('path').resolve(__dirname, './src/Theme')],
+          ['@U', require('path').resolve(__dirname, './src/Utils')]
+        ]
+      },
+      extension: ['.js', '.jsx', '.ts', '.tsx', '.json']
+    },
     react: {
       createClass: 'createReactClass', // Regex for Component Factory to use,
       // default to "createReactClass"

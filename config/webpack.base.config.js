@@ -12,9 +12,8 @@ const CopyPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 const PUBLIC_PATH = '/'
-const isEnvProduction =
-  process.env.NODE_ENV === 'production' ||
-  process.env.NODE_ENV === 'development'
+const isEnvProduction = process.env.NODE_ENV === 'production'
+// || process.env.NODE_ENV === 'development'
 
 const localClass = `${require('../package.json').name}_[local]_[hash:base64:5]`
 
