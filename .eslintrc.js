@@ -48,7 +48,9 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 0,
-    '@typescript-eslint/explicit-function-return-type': 0, //{ "allowTypedFunctionExpressions": false }
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/strict-boolean-expressions': 0,
+    //{ "allowTypedFunctionExpressions": false }
     'prettier/prettier': [
       'warn',
       {
