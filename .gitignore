@@ -9,3 +9,4 @@ __snapshots__
 */__snapshots__/*
 coverage
 coverage/*
+*/dist

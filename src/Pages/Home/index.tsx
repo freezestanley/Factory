@@ -33,9 +33,30 @@ const App = () => {
       <div className={cx({ box2: true })}>
         <div className={cx({ content: true })}>tttt</div>
       </div>
-      <Link to={'/login'}> login </Link>
+      <div>
+        <Link to={'/'}> index </Link>
+      </div>
       <br />
-      <Link to={'/shop'}> shop </Link>
+      <div>
+        <Link to={'/shop'}> shop </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/team'}> team </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/car'}> car </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/asset'}> asset </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/lazy'}> lazy </Link>
+      </div>
+      <br />
       <Outlet />
     </div>
   )

@@ -10,7 +10,30 @@ let cx = classNames.bind(Style)
 const Book = () => {
   return (
     <div className={cx({ book: true })}>
-      <Link to={'/shop'}> jump </Link>
+      <div>
+        <Link to={'/'}> index </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/shop'}> shop </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/team'}> team </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/car'}> car </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/asset'}> asset </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/lazy'}> lazy </Link>
+      </div>
+      <br />
       this is book
     </div>
   )

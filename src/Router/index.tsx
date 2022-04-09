@@ -6,26 +6,12 @@ import Header from '@/Components/Header'
 import Footer from '@/Components/Footer'
 import { AuthProvider, RequireAuth } from './Auth'
 
-// import Home from '@P/Home'
-// import Book from '@P/Book'
-// import Shop from '@P/Shop'
-// import Login from '@P/Login'
 import Car from '@P/Car'
 import Lazy from '@P/Lazy'
 
 import loadable, { lazy } from '@loadable/component'
-//webpackChunkName: "[request]"
-//webpackMode: "lazy-once"
-const AsyncComponent = lazy(
-  (props: { page: string }) =>
-    import(
-      /* webpackPrefetch: true */
-      /* webpackMode: "lazy-once" */
-      /* webpackPreload: true */
-      `@P/${props?.page}`
-    )
-)
-const AsyncComponent1 = loadable(
+
+const AsyncComponent1 = lazy(
   (props: { page: string }) =>
     import(
       /*
@@ -36,7 +22,7 @@ const AsyncComponent1 = loadable(
       `@P/Book`
     )
 )
-const AsyncComponent2 = loadable(
+const AsyncComponent2 = lazy(
   (props: { page: string }) =>
     import(
       /*
@@ -47,7 +33,7 @@ const AsyncComponent2 = loadable(
       `@P/Shop`
     )
 )
-const AsyncComponent3 = loadable(
+const AsyncComponent3 = lazy(
   (props: { page: string }) =>
     import(
       /*
@@ -56,6 +42,17 @@ const AsyncComponent3 = loadable(
       webpackPreload: true
       */
       `@P/Team`
+    )
+)
+const AsyncComponent4 = lazy(
+  (props: { page: string }) =>
+    import(
+      /*
+      webpackChunkName: "Asset",
+      webpackPrefetch: true,
+      webpackPreload: true
+      */
+      `@P/Asset`
     )
 )
 
@@ -85,69 +82,39 @@ export default function () {
         {
           index: true,
           element: (
-            // <React.Suspense fallback={<div>Loading</div>}>
-            //   <AsyncComponent1 page={'Book'} />
-            // </React.Suspense>
-            // <Book />
-            <AsyncComponent1 page={'Book'} />
-          )
-          // loadable(
-          //   (props: { page: string }) =>
-          //     import(
-          //       /* webpackChunkName: "Book" */
-          //       /* webpackPrefetch: true */
-          //       /* webpackPreload: true */
-          //       `@P/Book`
-          //     )
-          // )
-        },
-        {
-          path: 'shop',
-          element: (
-            // <React.Suspense fallback={<div>Loading</div>}>
-            //   <AsyncComponent page={'Shop'} />
-            // </React.Suspense>
-            // <Shop />
-            <AsyncComponent2 page={'Shop'} />
-            // loadable(
-            //   (props: { page: string }) =>
-            //     import(
-            //       /* webpackChunkName: "Shop" */
-            //       /* webpackPrefetch: true */
-            //       /* webpackPreload: true */
-            //       `@P/Shop`
-            //     )
-            // )
+            <React.Suspense fallback={<div>Loading</div>}>
+              <AsyncComponent1 page={'Book'} />
+            </React.Suspense>
           )
         },
         {
-          path: 'other', // asd
+          path: '/shop',
           element: (
-            // <React.Suspense fallback={<div>Loading</div>}>
-            //   <AsyncComponent page={'Team'} />
-            // </React.Suspense>
-            // <Shop />
-            <AsyncComponent3 page={'Team'} />
+            <React.Suspense fallback={<div>Loading</div>}>
+              <AsyncComponent2 page={'Shop'} />
+            </React.Suspense>
           )
-          // loadable(
-          //   (props: { page: string }) =>
-          //     import(
-          //       /* webpackChunkName: "Team" */
-          //       /* webpackPrefetch: true */
-          //       /* webpackPreload: true */
-          //       `@P/Team`
-          //     )
-          // )
+        },
+        {
+          path: '/team',
+          element: (
+            <React.Suspense fallback={<div>Loading</div>}>
+              <AsyncComponent3 page={'Team'} />
+            </React.Suspense>
+          )
         }
       ]
     },
     {
-      path: '/login',
+      path: '/car',
+      element: <Car />
+    },
+    {
+      path: '/asset',
       element: (
-        // <React.Suspense fallback={<div>Loading</div>}>
-        //   <AsyncComponent page={'Car'} />
-        // </React.Suspense>
-        <Car />
+        <React.Suspense fallback={<div>Loading</div>}>
+          <AsyncComponent4 page={'Team'} />
+        </React.Suspense>
       )
     },
     {
