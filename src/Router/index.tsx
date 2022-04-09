@@ -95,7 +95,7 @@ export default function () {
             )
         },
         {
-          path: 'other',
+          path: 'other', // asd
           element:
             // <React.Suspense fallback={<div>Loading</div>}>
             //   <AsyncComponent page={'Team'} />
