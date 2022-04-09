@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "sideEffects":[
+    "src/*.less",
+    "src/*.tsx"
+  ],
   "scripts": {
     "Sdev": "node .",
     "analyzer": "cross-env NODE_ENV=analyzer webpack -c ./config/analy.config.js",

@@ -28,11 +28,34 @@ const AsyncComponent = lazy(
 const AsyncComponent1 = loadable(
   (props: { page: string }) =>
     import(
-      /* webpackChunkName: "[request]" */
-      /* webpackPrefetch: true */
-      /* webpackMode: "lazy-once" */
-      /* webpackPreload: true */
-      `@P/${props?.page}`
+      /*
+      webpackChunkName: "Book",
+      webpackPrefetch: true,
+      webpackPreload: true
+      */
+      `@P/Book`
+    )
+)
+const AsyncComponent2 = loadable(
+  (props: { page: string }) =>
+    import(
+      /*
+      webpackChunkName: "Shop",
+      webpackPrefetch: true,
+      webpackPreload: true
+      */
+      `@P/Shop`
+    )
+)
+const AsyncComponent3 = loadable(
+  (props: { page: string }) =>
+    import(
+      /*
+      webpackChunkName: "Team",
+      webpackPrefetch: true,
+      webpackPreload: true
+      */
+      `@P/Team`
     )
 )
 
@@ -85,7 +108,7 @@ export default function () {
             //   <AsyncComponent page={'Shop'} />
             // </React.Suspense>
             // <Shop />
-            <AsyncComponent1 page={'Shop'} />
+            <AsyncComponent2 page={'Shop'} />
             // loadable(
             //   (props: { page: string }) =>
             //     import(
@@ -104,7 +127,7 @@ export default function () {
             //   <AsyncComponent page={'Team'} />
             // </React.Suspense>
             // <Shop />
-            <AsyncComponent1 page={'Team'} />
+            <AsyncComponent3 page={'Team'} />
           )
           // loadable(
           //   (props: { page: string }) =>
