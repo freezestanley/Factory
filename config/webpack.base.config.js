@@ -41,7 +41,7 @@ module.exports = {
     },
     path: path.resolve(__dirname, '../dist'), // 将打包好的文件放在此路径下，dev模式中，只会在内存中存在，不会真正的打包到此路径
     publicPath: PUBLIC_PATH, // 文件解析路径，index.html中引用的路径会被设置为相对于此路径
-    chunkFilename: 'js/[name].chunk.js',
+    chunkFilename: 'js/[name].chunk.js?v=[contenthash:4]',
     filename: (pathData, assetInfo) => {
       return pathData.chunk.name === 'vendors'
         ? 'js/[name].js'
