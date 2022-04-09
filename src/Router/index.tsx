@@ -28,6 +28,7 @@ const AsyncComponent = lazy(
 const AsyncComponent1 = loadable(
   (props: { page: string }) =>
     import(
+      /* webpackChunkName: "[request]" */
       /* webpackPrefetch: true */
       /* webpackMode: "lazy-once" */
       /* webpackPreload: true */
