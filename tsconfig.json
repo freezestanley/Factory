@@ -25,6 +25,12 @@
     },
     "emitDecoratorMetadata": true
   },
-  "include": ["src", "@types/index.d.ts", "@types/definition.d.ts"],
+  "include": [
+    "src",
+    "@types/index.d.ts",
+    "@types/definition.d.ts",
+    "__test__/Login/index.test.tsx",
+    "__test__/Team/index.test.tsx"
+  ],
   "exclude": ["node_modules", "config/*"]
 }

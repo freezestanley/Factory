@@ -1,27 +1,39 @@
-import React, { useState } from 'react'
-import { render } from 'react-dom'
-import { BrowserRouter, Routes, Route, useRoutes } from 'react-router-dom'
-import Loading from '@/Components/Loading'
+import React from 'react'
+import { useRoutes } from 'react-router-dom'
 import Notfound from '@/Components/NotFound'
 import Layer from '@/Layer'
 import Header from '@/Components/Header'
 import Footer from '@/Components/Footer'
 import { AuthProvider, RequireAuth } from './Auth'
-// import { lazy } from '@loadable/component'
-import Login from '@P/Login'
-const Car = React.lazy(() => import(/* webpackChunkName: "Car" */ '@P/Car'))
-const Shop = React.lazy(() => import(/* webpackChunkName: "Shop" */ '@P/Shop'))
-const Book = React.lazy(() => import(/* webpackChunkName: "Book" */ '@P/Book'))
-const Home = React.lazy(() => import(/* webpackChunkName: "Home" */ '@P/Home'))
 
-// const AsyncComponent = lazy(
-//   (props: { page: string }) =>
-//     import(
-//       /* webpackPrefetch: true */
-//       /* webpackChunkName: "Home" */
-//       `./${props.page}`
-//     )
-// )
+// import Home from '@P/Home'
+// import Book from '@P/Book'
+// import Shop from '@P/Shop'
+// import Login from '@P/Login'
+import Car from '@P/Car'
+import Lazy from '@P/Lazy'
+
+import loadable, { lazy } from '@loadable/component'
+//webpackChunkName: "[request]"
+//webpackMode: "lazy-once"
+const AsyncComponent = lazy(
+  (props: { page: string }) =>
+    import(
+      /* webpackPrefetch: true */
+      /* webpackMode: "lazy-once" */
+      /* webpackPreload: true */
+      `@P/${props?.page}`
+    )
+)
+const AsyncComponent1 = loadable(
+  (props: { page: string }) =>
+    import(
+      /* webpackPrefetch: true */
+      /* webpackMode: "lazy-once" */
+      /* webpackPreload: true */
+      `@P/${props?.page}`
+    )
+)
 
 export default function () {
   return useRoutes([
@@ -48,43 +60,72 @@ export default function () {
       children: [
         {
           index: true,
-          element: (
-            <React.Suspense fallback={<Loading />}>
-              <Home />
-            </React.Suspense>
-          )
-        },
-        {
-          path: 'messages',
-          element: (
-            <React.Suspense fallback={<Loading />}>
-              <Book />
-            </React.Suspense>
-          )
+          element:
+            // <React.Suspense fallback={<div>Loading</div>}>
+            //   <AsyncComponent1 page={'Book'} />
+            // </React.Suspense>
+            // <Book />
+            // <AsyncComponent1 page={'Book'} />
+            loadable(
+              (props: { page: string }) =>
+                import(
+                  /* webpackChunkName: "Book" */
+                  /* webpackPrefetch: true */
+                  /* webpackPreload: true */
+                  `@P/Book`
+                )
+            )
         },
         {
           path: 'shop',
-          element: (
-            <RequireAuth>
-              <React.Suspense fallback={<Loading />}>
-                <Shop />
-              </React.Suspense>
-            </RequireAuth>
-          )
+          element:
+            // <React.Suspense fallback={<div>Loading</div>}>
+            //   <AsyncComponent page={'Shop'} />
+            // </React.Suspense>
+            // <Shop />
+            // <AsyncComponent1 page={'Shop'} />
+            loadable(
+              (props: { page: string }) =>
+                import(
+                  /* webpackChunkName: "Shop" */
+                  /* webpackPrefetch: true */
+                  /* webpackPreload: true */
+                  `@P/Shop`
+                )
+            )
+        },
+        {
+          path: 'other',
+          element:
+            // <React.Suspense fallback={<div>Loading</div>}>
+            //   <AsyncComponent page={'Team'} />
+            // </React.Suspense>
+            // <Shop />
+            // <AsyncComponent1 page={'Team'} />
+            loadable(
+              (props: { page: string }) =>
+                import(
+                  /* webpackChunkName: "Team" */
+                  /* webpackPrefetch: true */
+                  /* webpackPreload: true */
+                  `@P/Team`
+                )
+            )
         }
       ]
     },
     {
-      path: 'team',
+      path: '/login',
       element: (
-        <React.Suspense fallback={<Loading />}>
-          <Car />
-        </React.Suspense>
+        // <React.Suspense fallback={<div>Loading</div>}>
+        //   <AsyncComponent page={'Car'} />
+        // </React.Suspense>
+        <Car />
       )
     },
     {
-      path: 'login',
-      element: <Login />
+      path: '/lazy',
+      element: <Lazy />
     },
     {
       path: '*',

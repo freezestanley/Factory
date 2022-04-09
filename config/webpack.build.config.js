@@ -1,6 +1,7 @@
 /**
  * base webpack config
  */
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -8,8 +9,6 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const EslintWebpackPlugin = require('eslint-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const LoadablePlugin = require('@loadable/webpack-plugin')
 const path = require('path')
 
 const PUBLIC_PATH = '/'
@@ -19,42 +18,28 @@ const isEnvProduction = process.env.NODE_ENV === 'production'
 const localClass = `${require('../package.json').name}_[local]_[hash:base64:5]`
 
 module.exports = {
-  entry: {
-    app: {
-      import: './src/index.tsx',
-      dependOn: ['module', 'common']
-    },
-    module: {
-      import: ['react', 'react-dom', 'react-router-dom', 'axios', 'swr'], //'prop-types'
-      runtime: 'runtime'
-    },
-    common: {
-      import: ['./src/utils/index.tsx'],
-      runtime: 'runtime'
-    }
-  },
   output: {
-    clean:true,
-    library: {
-      name: 'Factory',
-      type: 'umd'
-    },
+    clean: true,
+    // library: {
+    //   name: 'Factory',
+    //   type: 'umd'
+    // },
     path: path.resolve(__dirname, '../dist'), // 将打包好的文件放在此路径下，dev模式中，只会在内存中存在，不会真正的打包到此路径
     publicPath: PUBLIC_PATH, // 文件解析路径，index.html中引用的路径会被设置为相对于此路径
-    chunkFilename: 'js/[name].chunk.js',
+    chunkFilename: 'js/[name].[contenthash:4].chunk.js',
     filename: (pathData, assetInfo) => {
       return pathData.chunk.name === 'vendors'
         ? 'js/[name].js'
-        : 'js/[name]_[contenthash:8].js'
+        : 'js/[name]_[contenthash:4].js'
+      // return 'js/[name]_[contenthash:4].js'
     },
-    assetModuleFilename: 'static/images/[contenthash][ext]?v=[contenthash:4]'
+    assetModuleFilename: 'static/images/[name][ext]?v=[contenthash:4]'
   },
   module: {
     rules: [
       {
-        // test: /\.(js|jsx|tsx|mjs|ts)?$/i,
-        test:/\.(ts|js)x?$/,
-        exclude: [/node_modules/],
+        test: /\.(js|jsx|tsx|mjs|ts)?$/i,
+      exclude: [/node_modules/, /test/],
         use: [
           {
             loader: 'thread-loader',
@@ -75,35 +60,17 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   //图片解析
-      //   test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-      //   // More information here https://webpack.js.org/guides/asset-modules/
-      //   type: 'asset/resource',
-      //   parser: {
-      //     dataUrlCondition: {
-      //       maxSize: 4 * 1024 // 4kb
-      //     }
-      //   }
-      // },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        //图片解析
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        // More information here https://webpack.js.org/guides/asset-modules/
+        // type: 'asset/resource',
         type: 'asset/resource',
         parser: {
           dataUrlCondition: {
-            maxSize: 4 * 1024 // 4kb
+            maxSize: 10 * 1024 // 4kb
           }
-        },
-        generator: {
-          filename: 'static/images/[hash][ext][query]',
-        },
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'static/font/[hash][ext][query]',
-        },
+        }
       },
       {
         test: /\.css$/i,
@@ -168,7 +135,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.((c|sa|sc)ss)$/i,
+        test: /\.s[ac]ss$/i,
         use: [
           isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
@@ -199,7 +166,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new webpack.ProgressPlugin(),
     new webpack.ProvidePlugin({
       // shimming
@@ -208,11 +174,14 @@ module.exports = {
     new webpack.DefinePlugin({
       Mode: JSON.stringify(process.env.NODE_ENV)
     }),
-    new LoadablePlugin({ filename: 'stats.json', writeToDisk: true }),
+    new MiniCssExtractPlugin({
+      filename: 'style/[name].[contenthash:3].css?v=[contenthash]',
+      chunkFilename: 'style/[id].[contenthash:3].css?v=[contenthash]',
+      ignoreOrder: false,
+      linkType: 'text/css'
+    }),
     new HtmlWebpackPlugin({
       title: 'Hello React!',
-      showErrors: true,
-      cache: true,
       template: './public/index.html',
       filename: 'index.html', //生成的html存放路径，相对于 output.path
       favicon: './public/favicon.png', // 自动把根目录下的favicon.ico图片加入html
@@ -221,12 +190,6 @@ module.exports = {
         collapseWhitespace: true,
         removeComments: true
       }
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style/[contenthash:3].[name].css?v=[contenthash]',
-      chunkFilename: 'style/[contenthash:3].[id].css?v=[contenthash]',
-      ignoreOrder: false,
-      linkType: 'text/css'
     }),
     new ForkTsCheckerWebpackPlugin({
       // async: false,

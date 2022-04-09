@@ -4,9 +4,15 @@ import useSWR, { SWRConfig } from 'swr'
 import classNames from 'classnames/bind'
 import Style from './assets/styles/index.less'
 import camera from './assets/img/camera.svg'
+import { Routes, Route, Outlet, useOutletContext, Link } from 'react-router-dom'
 
 let cx = classNames.bind(Style)
 const Book = () => {
-  return <div className={cx({ demo: true })}>this is book</div>
+  return (
+    <div className={cx({ book: true })}>
+      <Link to={'/shop'}> jump </Link>
+      this is book
+    </div>
+  )
 }
 export default Book

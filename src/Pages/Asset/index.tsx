@@ -4,15 +4,16 @@ import useSWR, { SWRConfig } from 'swr'
 import classNames from 'classnames/bind'
 import Style from './assets/styles/index.less'
 import camera from './assets/img/camera.svg'
-import { Link } from 'react-router-dom'
+import a from './assets/img/a.png'
 
 let cx = classNames.bind(Style)
-const Shop = () => {
+const Car = () => {
   return (
-    <div className={cx({ shop: true })}>
-      this is shop
-      <Link to={'/other'}> jump </Link>
+    <div className={cx({ asset: true })}>
+      this is Car
+      <img src={camera} />
+      <img src={a} />
     </div>
   )
 }
-export default Shop
+export default Car

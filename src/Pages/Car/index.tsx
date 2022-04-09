@@ -7,6 +7,6 @@ import camera from './assets/img/camera.svg'
 
 let cx = classNames.bind(Style)
 const Car = () => {
-  return <div className={cx({ demo: true })}>this is Car</div>
+  return <div className={cx({ car: true })}>this is Car</div>
 }
 export default Car

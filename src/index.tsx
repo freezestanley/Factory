@@ -3,11 +3,14 @@ import ReactDom from 'react-dom'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppRouter from './Router'
 import './global.less'
+// import Team from '@P/Team'
 
 const Application = () => {
   return (
+    // <div>123123</div>
     <BrowserRouter>
       <AppRouter />
+      {/* <Route index element={<Team />} /> */}
     </BrowserRouter>
     // <BrowserRouter>
     //   <Routes>
@@ -23,22 +26,22 @@ const Application = () => {
 }
 
 ReactDom.render(<Application />, document.getElementById('app'))
-// eslint-disable-next-line no-undef
-if (Mode === 'production') {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .then((registration) => {
-          console.log('SW registered: ', registration)
-        })
-        .catch((registrationError) => {
-          console.log('SW registration failed: ', registrationError)
-        })
-    })
-  }
-}
-// eslint-disable-next-line
-if (module.hot) {
-  module.hot.accept()
-}
+// // eslint-disable-next-line no-undef
+// if (Mode === 'production') {
+//   if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', () => {
+//       navigator.serviceWorker
+//         .register('/service-worker.js')
+//         .then((registration) => {
+//           console.log('SW registered: ', registration)
+//         })
+//         .catch((registrationError) => {
+//           console.log('SW registration failed: ', registrationError)
+//         })
+//     })
+//   }
+// }
+// // eslint-disable-next-line
+// if (module.hot) {
+//   module.hot.accept()
+// }

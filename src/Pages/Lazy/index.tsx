@@ -4,15 +4,9 @@ import useSWR, { SWRConfig } from 'swr'
 import classNames from 'classnames/bind'
 import Style from './assets/styles/index.less'
 import camera from './assets/img/camera.svg'
-import { Link } from 'react-router-dom'
 
 let cx = classNames.bind(Style)
-const Shop = () => {
-  return (
-    <div className={cx({ shop: true })}>
-      this is shop
-      <Link to={'/other'}> jump </Link>
-    </div>
-  )
+const Lazy = () => {
+  return <div className={cx({ lazy: true })}>this is Lazy</div>
 }
-export default Shop
+export default Lazy
