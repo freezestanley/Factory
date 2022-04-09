@@ -60,57 +60,60 @@ export default function () {
       children: [
         {
           index: true,
-          element:
+          element: (
             // <React.Suspense fallback={<div>Loading</div>}>
             //   <AsyncComponent1 page={'Book'} />
             // </React.Suspense>
             // <Book />
-            // <AsyncComponent1 page={'Book'} />
-            loadable(
-              (props: { page: string }) =>
-                import(
-                  /* webpackChunkName: "Book" */
-                  /* webpackPrefetch: true */
-                  /* webpackPreload: true */
-                  `@P/Book`
-                )
-            )
+            <AsyncComponent1 page={'Book'} />
+          )
+          // loadable(
+          //   (props: { page: string }) =>
+          //     import(
+          //       /* webpackChunkName: "Book" */
+          //       /* webpackPrefetch: true */
+          //       /* webpackPreload: true */
+          //       `@P/Book`
+          //     )
+          // )
         },
         {
           path: 'shop',
-          element:
+          element: (
             // <React.Suspense fallback={<div>Loading</div>}>
             //   <AsyncComponent page={'Shop'} />
             // </React.Suspense>
             // <Shop />
-            // <AsyncComponent1 page={'Shop'} />
-            loadable(
-              (props: { page: string }) =>
-                import(
-                  /* webpackChunkName: "Shop" */
-                  /* webpackPrefetch: true */
-                  /* webpackPreload: true */
-                  `@P/Shop`
-                )
-            )
+            <AsyncComponent1 page={'Shop'} />
+            // loadable(
+            //   (props: { page: string }) =>
+            //     import(
+            //       /* webpackChunkName: "Shop" */
+            //       /* webpackPrefetch: true */
+            //       /* webpackPreload: true */
+            //       `@P/Shop`
+            //     )
+            // )
+          )
         },
         {
           path: 'other', // asd
-          element:
+          element: (
             // <React.Suspense fallback={<div>Loading</div>}>
             //   <AsyncComponent page={'Team'} />
             // </React.Suspense>
             // <Shop />
-            // <AsyncComponent1 page={'Team'} />
-            loadable(
-              (props: { page: string }) =>
-                import(
-                  /* webpackChunkName: "Team" */
-                  /* webpackPrefetch: true */
-                  /* webpackPreload: true */
-                  `@P/Team`
-                )
-            )
+            <AsyncComponent1 page={'Team'} />
+          )
+          // loadable(
+          //   (props: { page: string }) =>
+          //     import(
+          //       /* webpackChunkName: "Team" */
+          //       /* webpackPrefetch: true */
+          //       /* webpackPreload: true */
+          //       `@P/Team`
+          //     )
+          // )
         }
       ]
     },
