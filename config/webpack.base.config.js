@@ -43,9 +43,10 @@ module.exports = {
     publicPath: PUBLIC_PATH, // 文件解析路径，index.html中引用的路径会被设置为相对于此路径
     chunkFilename: 'js/[name].chunk.js?v=[contenthash:4]',
     filename: (pathData, assetInfo) => {
-      return pathData.chunk.name === 'vendors'
-        ? 'js/[name].js'
-        : 'js/[name]_[contenthash:8].js'
+      // return pathData.chunk.name === 'vendors'
+      //   ? 'js/[name]_[contenthash:8].js'
+      //   : 'js/[name]_[contenthash:8].js'
+      return 'js/[name]_[contenthash:4].js'
     },
     assetModuleFilename: 'static/images/[contenthash][ext]?v=[contenthash:4]'
   },
