@@ -3,15 +3,17 @@ import ReactDom from 'react-dom'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppRouter from './Router'
 import './global.less'
+import { AuthProvider, RequireAuth } from '@/Router/Auth'
 // import Team from '@P/Team'
 
 const Application = () => {
   return (
     // <div>123123</div>
-    <BrowserRouter>
-      <AppRouter />
-      {/* <Route index element={<Team />} /> */}
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </AuthProvider>
     // <BrowserRouter>
     //   <Routes>
     //     <Route index element={<Car />} />

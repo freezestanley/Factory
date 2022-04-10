@@ -8,7 +8,6 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const EslintWebpackPlugin = require('eslint-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const path = require('path')
 
@@ -22,16 +21,16 @@ module.exports = {
   entry: {
     app: {
       import: './src/index.tsx',
-      dependOn: ['module', 'common']
+      // dependOn: ['common']
     },
-    module: {
-      import: ['react', 'react-dom', 'react-router-dom', 'axios', 'swr'], //'prop-types'
-      runtime: 'runtime'
-    },
-    common: {
-      import: ['./src/utils/index.tsx'],
-      runtime: 'runtime'
-    }
+    // module: {
+    //   import: ['react', 'react-dom', 'react-router-dom', 'axios', 'swr'], //'prop-types'
+    //   runtime: 'runtime'
+    // },
+    // common: {
+    //   import: ['./src/utils/index.tsx'],
+    //   runtime: 'runtime'
+    // }
   },
   output: {
     clean:true,
@@ -43,7 +42,7 @@ module.exports = {
     publicPath: PUBLIC_PATH, // 文件解析路径，index.html中引用的路径会被设置为相对于此路径
     chunkFilename: 'js/[name][contenthash:4].chunk.js?v=[contenthash:4]',
     filename: (pathData, assetInfo) => {
-      return pathData.chunk.name === 'module'
+      return pathData.chunk.name === 'vendors'
         ? 'js/[name].js'
         : 'js/[name][contenthash:4].js?v=[contenthash:4]'
     },
@@ -199,7 +198,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new webpack.ProgressPlugin(),
     new webpack.ProvidePlugin({
       // shimming

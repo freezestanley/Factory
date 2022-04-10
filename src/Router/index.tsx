@@ -62,22 +62,20 @@ export default function () {
     {
       path: '/',
       element: (
-        <AuthProvider>
-          <Layer
-            header={
-              // <Routes>
-              //   <Route path="shop" element={<Header />} />
-              // </Routes>
-              <Header title={'AAA'} />
-            }
-            footer={
-              // <Routes>
-              //   <Route path="shop" element={<Footer />} />
-              // </Routes>
-              <Footer />
-            }
-          />
-        </AuthProvider>
+        <Layer
+          header={
+            // <Routes>
+            //   <Route path="shop" element={<Header />} />
+            // </Routes>
+            <Header title={'AAA'} />
+          }
+          footer={
+            // <Routes>
+            //   <Route path="shop" element={<Footer />} />
+            // </Routes>
+            <Footer />
+          }
+        />
       ),
       children: [
         {
@@ -91,9 +89,11 @@ export default function () {
         {
           path: '/shop',
           element: (
-            <React.Suspense fallback={<div>Loading</div>}>
-              <AsyncComponent2 page={'Shop'} />
-            </React.Suspense>
+            <RequireAuth>
+              <React.Suspense fallback={<div>Loading</div>}>
+                <AsyncComponent2 page={'Shop'} />
+              </React.Suspense>
+            </RequireAuth>
           )
         },
         {
@@ -120,7 +120,11 @@ export default function () {
     },
     {
       path: '/lazy',
-      element: <Lazy />
+      element: (
+        <RequireAuth>
+          <Lazy />
+        </RequireAuth>
+      )
     },
     {
       path: '*',

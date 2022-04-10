@@ -49,7 +49,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/strict-boolean-expressions': 0,
+    // '@typescript-eslint/strict-boolean-expressions': 0,
     //{ "allowTypedFunctionExpressions": false }
     'prettier/prettier': [
       'warn',

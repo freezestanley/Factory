@@ -9,7 +9,7 @@ interface AuthContextType {
 let AuthContext = React.createContext<AuthContextType>(null!)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  let [user, setUser] = React.useState<any>(null)
+  let [user, setUser] = React.useState<any>(false)
 
   let signin = (newUser: string, callback: VoidFunction) => {
     return new Promise((): void => {
@@ -33,11 +33,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 export function useAuth() {
   return React.useContext(AuthContext)
 }
-export function RequireAuth({ children }: { children: React.ReactElement }) {
+export function RequireAuth({
+  children,
+  authFail = '/login'
+}: {
+  children: React.ReactElement
+  authFail?: string
+}) {
   let auth = useAuth()
   let location = useLocation()
-  if (!auth.user) {
-    return <Navigate to="/login" state={{ from: location }} replace />
+  if (!auth?.user) {
+    return <Navigate to={authFail} state={{ from: location }} replace />
   } else {
     return children
   }

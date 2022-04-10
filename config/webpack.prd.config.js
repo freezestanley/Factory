@@ -7,6 +7,7 @@ const webpack = require('webpack')
 // const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 // const { extendDefaultPlugins } = require('svgo')
 const WorkboxPlugin = require('workbox-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(BaseConfig, {
   mode: 'production',
@@ -77,6 +78,7 @@ module.exports = merge(BaseConfig, {
       enforceSizeThreshold: 50000,
       cacheGroups: {
         defaultVendors: {
+          name: 'vendors',
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
           reuseExistingChunk: true,
@@ -109,6 +111,7 @@ module.exports = merge(BaseConfig, {
     version: '2.0.0'
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'style/[contenthash:3].[name].css?v=[contenthash]',
       chunkFilename: 'style/[contenthash:3].[id].css?v=[contenthash]',
