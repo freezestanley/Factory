@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Example from '../../src/Pages/Team/index'
+import Example from '../../index'
 
 describe('App', () => {
   test('renders App component', () => {

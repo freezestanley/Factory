@@ -5,15 +5,16 @@ import Layer from '@/Layer'
 import Header from '@/Components/Header'
 import Footer from '@/Components/Footer'
 import { AuthProvider, RequireAuth } from './Auth'
+import Loading from '@/Components/Loading'
 
 import Car from '@P/Car'
 import Lazy from '@P/Lazy'
-// asdfas
+import Login from '@P/Login'
 
 import loadable, { lazy } from '@loadable/component'
 
-const AsyncComponent1 = lazy(
-  (props: { page: string }) =>
+const AsyncBook = lazy(
+  () =>
     import(
       /*
       webpackChunkName: "Book",
@@ -23,8 +24,8 @@ const AsyncComponent1 = lazy(
       `@P/Book`
     )
 )
-const AsyncComponent2 = lazy(
-  (props: { page: string }) =>
+const AsyncShop = lazy(
+  () =>
     import(
       /*
       webpackChunkName: "Shop",
@@ -34,8 +35,8 @@ const AsyncComponent2 = lazy(
       `@P/Shop`
     )
 )
-const AsyncComponent3 = lazy(
-  (props: { page: string }) =>
+const AsyncTeam = lazy(
+  () =>
     import(
       /*
       webpackChunkName: "Team",
@@ -45,8 +46,8 @@ const AsyncComponent3 = lazy(
       `@P/Team`
     )
 )
-const AsyncComponent4 = lazy(
-  (props: { page: string }) =>
+const AsyncAsset = lazy(
+  () =>
     import(
       /*
       webpackChunkName: "Asset",
@@ -81,8 +82,8 @@ export default function () {
         {
           index: true,
           element: (
-            <React.Suspense fallback={<div>Loading</div>}>
-              <AsyncComponent1 page={'Book'} />
+            <React.Suspense fallback={<Loading />}>
+              <AsyncBook />
             </React.Suspense>
           )
         },
@@ -90,8 +91,8 @@ export default function () {
           path: '/shop',
           element: (
             <RequireAuth>
-              <React.Suspense fallback={<div>Loading</div>}>
-                <AsyncComponent2 page={'Shop'} />
+              <React.Suspense fallback={<Loading />}>
+                <AsyncShop />
               </React.Suspense>
             </RequireAuth>
           )
@@ -99,8 +100,8 @@ export default function () {
         {
           path: '/team',
           element: (
-            <React.Suspense fallback={<div>Loading</div>}>
-              <AsyncComponent3 page={'Team'} />
+            <React.Suspense fallback={<Loading />}>
+              <AsyncTeam />
             </React.Suspense>
           )
         }
@@ -113,8 +114,8 @@ export default function () {
     {
       path: '/asset',
       element: (
-        <React.Suspense fallback={<div>Loading</div>}>
-          <AsyncComponent4 page={'Team'} />
+        <React.Suspense fallback={<Loading />}>
+          <AsyncAsset />
         </React.Suspense>
       )
     },
@@ -125,6 +126,10 @@ export default function () {
           <Lazy />
         </RequireAuth>
       )
+    },
+    {
+      path: '/login',
+      element: <Login />
     },
     {
       path: '*',
