@@ -6,7 +6,7 @@ import useSWR from 'swr'
 export function useUser() {
   debugger
   const fetcher = (url: string) => request.get(url).then((res) => res)
-  const { data, error } = useSWR('http://localhost:7777/message', fetcher)
+  const { data, error } = useSWR('http://localhost:7777/api/message', fetcher)
   return {
     data,
     error
