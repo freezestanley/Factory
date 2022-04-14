@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import useSWR, { SWRConfig } from 'swr'
 import classNames from 'classnames/bind'
 import Style from './assets/styles/index.less'
@@ -8,7 +7,7 @@ import a from './assets/img/a.png'
 import { Link } from 'react-router-dom'
 
 let cx = classNames.bind(Style)
-const Car = () => {
+const Asset = () => {
   return (
     <div className={cx({ asset: true })}>
       this is Asset
@@ -39,4 +38,4 @@ const Car = () => {
     </div>
   )
 }
-export default Car
+export default Asset

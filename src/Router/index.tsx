@@ -6,57 +6,12 @@ import Header from '@/Components/Header'
 import Footer from '@/Components/Footer'
 import { AuthProvider, RequireAuth } from './Auth'
 import Loading from '@/Components/Loading'
-
+import { lazy } from '@loadable/component'
 import Car from '@P/Car'
 import Lazy from '@P/Lazy'
 import Login from '@P/Login'
-
-import loadable, { lazy } from '@loadable/component'
-
-const AsyncBook = lazy(
-  () =>
-    import(
-      /*
-      webpackChunkName: "Book",
-      webpackPrefetch: true,
-      webpackPreload: true
-      */
-      `@P/Book`
-    )
-)
-const AsyncShop = lazy(
-  () =>
-    import(
-      /*
-      webpackChunkName: "Shop",
-      webpackPrefetch: true,
-      webpackPreload: true
-      */
-      `@P/Shop`
-    )
-)
-const AsyncTeam = lazy(
-  () =>
-    import(
-      /*
-      webpackChunkName: "Team",
-      webpackPrefetch: true,
-      webpackPreload: true
-      */
-      `@P/Team`
-    )
-)
-const AsyncAsset = lazy(
-  () =>
-    import(
-      /*
-      webpackChunkName: "Asset",
-      webpackPrefetch: true,
-      webpackPreload: true
-      */
-      `@P/Asset`
-    )
-)
+import Ert from '@P/Ert'
+import { AsyncBook, AsyncShop, AsyncTeam, AsyncAsset } from './Async'
 
 export default function () {
   return useRoutes([
@@ -130,6 +85,10 @@ export default function () {
     {
       path: '/login',
       element: <Login />
+    },
+    {
+      path: '/ert',
+      element: <Ert />
     },
     {
       path: '*',

@@ -7,7 +7,7 @@ const webpack = require('webpack')
 // const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 // const { extendDefaultPlugins } = require('svgo')
 const WorkboxPlugin = require('workbox-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = merge(BaseConfig, {
   mode: 'production',
@@ -80,8 +80,9 @@ module.exports = merge(BaseConfig, {
         defaultVendors: {
           name: 'vendors',
           test: /[\\/]node_modules[\\/]/,
+          minChunks: 2,
           priority: -10,
-          reuseExistingChunk: true,
+          reuseExistingChunk: true
         },
         common: {
           name: 'commons',
@@ -129,6 +130,52 @@ module.exports = merge(BaseConfig, {
         {
           urlPattern: /.*\.js/, // 匹配文件
           handler: 'NetworkFirst' // 网络优先
+        },
+        {
+          urlPattern: /api/, // 匹配文件
+          handler: 'NetworkFirst', // 网络优先
+          options: {
+            // 超过10s使用缓存做为回退方案。
+            networkTimeoutSeconds: 3,
+            // 为此路由指定自定义缓存名称。
+            cacheName: 'factory-api-cache',
+            // 配置自定义缓存过期。
+            expiration: {
+              maxEntries: 5,
+              maxAgeSeconds: 60
+            },
+            // 配置background sync.
+            backgroundSync: {
+              name: 'factory-queue-name',
+              options: {
+                maxRetentionTime: 60 * 60
+              }
+            },
+            // 配置哪些response是可缓存的。
+            cacheableResponse: {
+              statuses: [0, 200],
+              headers: { 'x-test': 'true' }
+            },
+            // 配置广播缓存更新插件。
+            // broadcastUpdate: {
+            //   channelName: 'factory-update-channel'
+            // },
+            // 添加您需要的任何其他逻辑插件。
+            plugins: [
+              {
+                cacheDidUpdate: () => {
+                  /* 自定义插件代码 */
+                }
+              }
+            ],
+            // matchOptions 和 fetchOptions 用于配置 handler.
+            fetchOptions: {
+              mode: 'no-cors'
+            },
+            matchOptions: {
+              ignoreSearch: true
+            }
+          }
         },
         {
           urlPattern: /.*\.[html|css|png|jpg]/, // 匹配文件

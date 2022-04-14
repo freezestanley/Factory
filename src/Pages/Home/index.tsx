@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import useSWR, { SWRConfig } from 'swr'
 import classNames from 'classnames/bind'
 import Style from './assets/styles/index.less'
@@ -8,7 +7,7 @@ import { Routes, Route, Outlet, useOutletContext, Link } from 'react-router-dom'
 import { useLayer } from '@/Layer'
 
 let cx = classNames.bind(Style)
-const App = () => {
+const Home = () => {
   const [
     headerDisplay,
     setHeaderDisplay,
@@ -61,4 +60,4 @@ const App = () => {
     </div>
   )
 }
-export default App
+export default Home
