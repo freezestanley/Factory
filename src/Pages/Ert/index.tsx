@@ -1,7 +1,7 @@
 import React from 'react'
 import useSWR from 'swr'
 import request from 'umi-request'
-import { useUser } from '@/Utils/useUser'
+import { useUser } from '@/Utils/bb'
 
 function Ert() {
   const { data, error } = useUser()
