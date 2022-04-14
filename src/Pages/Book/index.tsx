@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import classNames from 'classnames/bind'
 import Style from './assets/styles/index.less'
 import { useOutletContext, Link } from 'react-router-dom'
-import { useUser } from '@/Utils'
+import { useUser } from '@/Utils/index'
 
 let cx = classNames.bind(Style)
 const Book = () => {
