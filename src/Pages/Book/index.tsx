@@ -4,7 +4,7 @@ import classNames from 'classnames/bind'
 import Style from './assets/styles/index.less'
 import { useOutletContext, Link } from 'react-router-dom'
 import { useUser } from './bb'
-import Tool from '@/Tools/tool'
+import Tool from '@TB/tool'
 
 let cx = classNames.bind(Style)
 const Book = () => {

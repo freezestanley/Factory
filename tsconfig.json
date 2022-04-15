@@ -21,7 +21,7 @@
       "@P/*": ["../src/Pages/*"],
       "@A/*": ["../src/Api/*"],
       "@T/*": ["../src/Theme/*"],
-      "@U/*": ["../src/Utils/*"]
+      "@TB/*": ["../src/Toolbox/*"]
     },
     "emitDecoratorMetadata": true
   },

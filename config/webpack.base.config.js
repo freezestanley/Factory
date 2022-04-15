@@ -20,9 +20,9 @@ const localClass = `${require('../package.json').name}_[local]_[hash:base64:5]`
 module.exports = {
   entry: {
     app: {
-      import: './src/index.tsx',
+      import: './src/index.tsx'
       // dependOn: ['common']
-    },
+    }
     // module: {
     //   import: ['react', 'react-dom', 'react-router-dom', 'axios', 'swr'], //'prop-types'
     //   runtime: 'runtime'
@@ -33,7 +33,7 @@ module.exports = {
     // }
   },
   output: {
-    clean:true,
+    clean: true,
     library: {
       name: 'Factory',
       type: 'umd'
@@ -52,7 +52,7 @@ module.exports = {
     rules: [
       {
         // test: /\.(js|jsx|tsx|mjs|ts)?$/i,
-        test:/\.(ts|js)x?$/,
+        test: /\.(ts|js)x?$/,
         exclude: [/node_modules/],
         use: [
           {
@@ -94,15 +94,15 @@ module.exports = {
           }
         },
         generator: {
-          filename: 'static/images/[hash][ext][query]',
-        },
+          filename: 'static/images/[hash][ext][query]'
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'static/font/[hash][ext][query]',
-        },
+          filename: 'static/font/[hash][ext][query]'
+        }
       },
       {
         test: /\.css$/i,
@@ -273,7 +273,7 @@ module.exports = {
       '@P': path.resolve(__dirname, '../src/Pages'),
       '@A': path.resolve(__dirname, '../src/Api'),
       '@T': path.resolve(__dirname, '../src/Theme'),
-      '@U': path.resolve(__dirname, '../src/Utils')
+      '@TB': path.resolve(__dirname, '../src/Toolbox')
     }
   }
 }
