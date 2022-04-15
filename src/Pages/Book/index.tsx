@@ -10,6 +10,7 @@ let cx = classNames.bind(Style)
 const Book = () => {
   const { data, error } = useUser()
   useEffect(() => {
+    Tool()
     console.log(`useEffect data: }`)
     return () => {
       console.log(`removeEffect data:$}`)
@@ -28,7 +29,9 @@ const Book = () => {
   }
   return (
     <div className={cx({ book: true })}>
-      <div>data: {data?.msg}</div>
+      <div>
+        data: {data?.msg} {Tool()}
+      </div>
       <div>
         <Link to={'/'}> index </Link>
       </div>
