@@ -1,7 +1,6 @@
 import React from 'react'
-import useSWR, { SWRConfig } from 'swr'
 import classNames from 'classnames/bind'
-import Style from './assets/styles/index.less'
+import Style from './index.less'
 import camera from './assets/img/camera.svg'
 import { Routes, Route, Outlet, useOutletContext, Link } from 'react-router-dom'
 import { useLayer } from '@/Layer'

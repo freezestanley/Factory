@@ -137,7 +137,7 @@
   "explorer.experimental.fileNesting.enabled": true,
   "explorer.experimental.fileNesting.expand": false,
   "explorer.experimental.fileNesting.patterns": {
-    "index.tsx": "index*.less,index*.sass,index*.scss,index*.css,index*.jpg,index*.svg,index*.json,index.*"
+    "index.tsx": "index*.less,index*.sass,index*.scss,index*.css,index*.jpg,index*.svg,index*.json,index.*,hooks.ts"
   }
   /**--filer nesting end--**/
 }

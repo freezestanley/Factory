@@ -20,7 +20,10 @@ declare module '*.svg' {
 
 interface Window {
   BUILD: string
+  VConsole: function
+  location: string
 }
+
 declare let module: {
   hot?: { accept: function }
 }

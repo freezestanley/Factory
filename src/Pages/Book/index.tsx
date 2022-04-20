@@ -1,17 +1,15 @@
-//@ts-nocheck
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
-import Style from './assets/styles/index.less'
-import { useOutletContext, Link } from 'react-router-dom'
-import { useUser } from './bb'
-import Tool from '@TB/tool'
+import Style from './index.less'
+import { Link } from 'react-router-dom'
+import dataDb from '@TB/goDB'
 
 let cx = classNames.bind(Style)
 const Book = () => {
-  const { data, error } = useUser()
+  const [userId, setUserId] = useState(1)
+
   useEffect(() => {
-    Tool()
-    console.log(`useEffect data: }`)
+    // console.log(`useEffect data: ${JSON.stringify(data)}}`)
     return () => {
       console.log(`removeEffect data:$}`)
     }
@@ -19,9 +17,7 @@ const Book = () => {
 
   const GetHandler: React.MouseEventHandler<HTMLDivElement> = async (e) => {
     console.log('1111')
-    // getData({ name: '123123', prd: 'bbbb' })
-    debugger
-    // let result = useUser()
+    setUserId(userId + 1)
     debugger
   }
   const PostHandler: React.MouseEventHandler<HTMLDivElement> = (e) => {
@@ -29,9 +25,6 @@ const Book = () => {
   }
   return (
     <div className={cx({ book: true })}>
-      <div>
-        data: {data?.msg} {Tool()}
-      </div>
       <div>
         <Link to={'/'}> index </Link>
       </div>

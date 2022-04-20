@@ -1,17 +1,38 @@
 import React from 'react'
-import useSWR from 'swr'
-import request from 'umi-request'
-import { useUser } from './bb'
+import classNames from 'classnames/bind'
+import Style from './index.less'
+import camera from './assets/img/camera.svg'
+import { Link } from 'react-router-dom'
 
-function Ert() {
-  const { data, error } = useUser()
+let cx = classNames.bind(Style)
+const Ert = () => {
   return (
-    <div>
-      <h1>{data?.code}</h1>
-      <p>{data?.msg}</p>
-      <strong>👁 {data?.subscribers_count}</strong>{' '}
-      <strong>✨ {data?.stargazers_count}</strong>{' '}
-      <strong>🍴 {data?.forks_count}</strong>
+    <div className={cx({ lazy: true })}>
+      this is Ert
+      <div>
+        <Link to={'/'}> index </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/shop'}> shop </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/team'}> team </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/car'}> car </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/asset'}> asset </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/lazy'}> lazy </Link>
+      </div>
+      <br />
     </div>
   )
 }

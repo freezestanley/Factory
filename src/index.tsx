@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppRouter from './Router'
 import './global.less'
 import { AuthProvider, RequireAuth } from '@/Router/Auth'
+import Debugger from '@/Toolbox/debugger'
+import dataDb from '@TB/goDB'
 // import Team from '@P/Team'
 
 const Application = () => {
@@ -47,3 +49,4 @@ if (Mode === 'production') {
 if (module.hot) {
   module.hot.accept()
 }
+Debugger()

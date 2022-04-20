@@ -100,6 +100,7 @@
     "postcss-loader": "^6.2.1",
     "postcss-modules": "^4.3.1",
     "postcss-preset-env": "^7.4.3",
+    "postcss-px-to-viewport": "^1.1.1",
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.3",
     "postcss-svgo": "^5.1.0",
@@ -133,15 +134,16 @@
   "dependencies": {
     "@loadable/component": "^5.15.2",
     "@types/loadable__component": "^5.13.4",
-    "axios": "^0.26.1",
+    "ahooks": "^3.3.8",
     "classnames": "^2.3.1",
+    "godb": "^0.6.2",
     "history": "^5.3.0",
+    "modern-css-reset": "^1.4.0",
     "react": "^17.0.2",
     "react-activation": "^0.9.12",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^8.33.1",
     "react-router-dom": "^6.3.0",
-    "swr": "^1.2.2",
     "umi-request": "^1.4.0"
   },
   "lint-staged": {

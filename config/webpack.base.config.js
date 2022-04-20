@@ -167,7 +167,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.((c|sa|sc)ss)$/i,
+        test: /\.((sa|sc)ss)$/i,
         use: [
           isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {

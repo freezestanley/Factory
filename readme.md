@@ -1,5 +1,2 @@
-
-# commitlint example
-```
-git commit -m 'feat(commitlint): add commitlint'
-```
+# Toolbox
+> goDB 引入indexDB 将常用枚举塞入DB
