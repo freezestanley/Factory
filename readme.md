@@ -1,7 +1,6 @@
 ![avatar](https://github.com/freezestanley/Factory/blob/lazy/public/logo.png)
 
-# IF 
-> 基于webpack5 + react + typescript脚手架
+# IF 这是一个基于webpack5 + react + typescript脚手架
 
 # File 
 
