@@ -123,7 +123,14 @@
     "source.fixAll.eslint": true, // "source.fixAll": false
     "source.fixAll.stylelint": true // stylelint fix true
   },
-  "cSpell.words": ["corejs", "eslintcache", "stylelint", "stylelintcache"],
+  "cSpell.words": [
+    "ahooks",
+    "corejs",
+    "eslintcache",
+    "Frequest",
+    "stylelint",
+    "stylelintcache"
+  ],
 
   /**--stylelint start--**/
   "css.validate": false, // 防止编辑器内置linter与插件冲突设置

@@ -32,10 +32,6 @@
     "url": "https://github.com/freezestanley/Factory/issues"
   },
   "homepage": "https://github.com/freezestanley/Factory#readme",
-  "engines": {
-    "node": ">=10",
-    "pnpm": ">=6.28.0"
-  },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
@@ -158,5 +154,9 @@
     "**/*.{md,json}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=14.18.2",
+    "pnpm": ">=6.32.8"
   }
 }

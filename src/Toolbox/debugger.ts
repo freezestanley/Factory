@@ -1,4 +1,4 @@
-const Debugger = function () {
+const vconsole = function () {
   if (!/vconsole=true/.test(window.location.href)) return
   const vConsole = document.createElement('script')
   vConsole.setAttribute(
@@ -13,4 +13,4 @@ const Debugger = function () {
   })
   document.head.appendChild(vConsole)
 }
-export default Debugger
+export default vconsole

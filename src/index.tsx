@@ -5,12 +5,9 @@ import AppRouter from './Router'
 import './global.less'
 import { AuthProvider, RequireAuth } from '@/Router/Auth'
 import Debugger from '@/Toolbox/debugger'
-import dataDb from '@TB/goDB'
-// import Team from '@P/Team'
 
 const Application = () => {
   return (
-    // <div>123123</div>
     <AuthProvider>
       <BrowserRouter>
         <AppRouter />

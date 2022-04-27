@@ -1,4 +1,5 @@
-import React from 'react'
+// @ts-nocheck
+import React, { Profiler } from 'react'
 import { useRoutes } from 'react-router-dom'
 import Notfound from '@/Components/NotFound'
 import Layer from '@/Layer'
@@ -14,6 +15,23 @@ import Ert from '@P/Ert'
 import { AsyncBook, AsyncShop, AsyncTeam, AsyncAsset } from './Async'
 
 export default function () {
+  const callback = (
+    id,
+    phase,
+    actualDuration,
+    baseDuration,
+    startTime,
+    commitTime,
+    interactions
+  ) => {
+    console.log(`id:${id}`)
+    console.log(`phase:${phase}`)
+    console.log(`actualDuration:${actualDuration}`)
+    console.log(`baseDuration:${baseDuration}`)
+    console.log(`startTime:${startTime}`)
+    console.log(`commitTime:${commitTime}`)
+    console.log(`interactions:${interactions}`)
+  }
   return useRoutes([
     {
       path: '/',
@@ -37,9 +55,11 @@ export default function () {
         {
           index: true,
           element: (
-            <React.Suspense fallback={<Loading />}>
-              <AsyncBook />
-            </React.Suspense>
+            <Profiler id="AsyncBook" onRender={callback}>
+              <React.Suspense fallback={<Loading />}>
+                <AsyncBook />
+              </React.Suspense>
+            </Profiler>
           )
         },
         {

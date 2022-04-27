@@ -12,7 +12,7 @@ request.interceptors.response.use((response, options) => {
   return response
 })
 // 当前应用实例
-export const Frequest: RequestMethod = extend({
+const Frequest: RequestMethod = extend({
   prefix: baseUrl,
   timeout: 1000,
   loadingDelay: 300,
@@ -30,3 +30,4 @@ Frequest.interceptors.request.use((url, options) => {
 Frequest.interceptors.response.use((response, options) => {
   return response
 })
+export default Frequest

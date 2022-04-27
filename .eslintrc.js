@@ -44,6 +44,8 @@ module.exports = {
     'no-unmodified-loop-condition': 'error',
     'no-with': 'error',
     'no-catch-shadow': 'error',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react/no-unescaped-entities': 'off',
     'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
     'react-hooks/exhaustive-deps': 'warn',
