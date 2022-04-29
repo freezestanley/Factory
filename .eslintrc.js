@@ -67,7 +67,7 @@ module.exports = {
         allowNumber: false
       }
     ],
-    'babel/no-invalid-this': 1,
+    'babel/no-invalid-this': 0,
     'babel/object-curly-spacing': 0,
     'babel/quotes': 0,
     'babel/semi': 0,

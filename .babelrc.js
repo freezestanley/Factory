@@ -23,8 +23,8 @@ module.exports = {
     '@babel/plugin-proposal-optional-chaining',
     '@babel/plugin-proposal-nullish-coalescing-operator',
     '@babel/plugin-proposal-throw-expressions',
-    '@loadable/babel-plugin'
+    '@loadable/babel-plugin',
+    'react-activation/babel'
     // 'react-loadable/babel',
-    // 'react-activation/babel'
   ]
 }

@@ -1,14 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import classNames from 'classnames/bind'
 import Style from './index.less'
 import { Link } from 'react-router-dom'
-import dataDb from '@TB/goDB'
-import ReactDOM from 'react-dom'
+import KeepAlive from 'react-activation'
 
 let cx = classNames.bind(Style)
+const Aa = () => <div>1233</div>
+function Counter(props: { children: React.ReactChild; name: string }) {
+  const [count, setCount] = useState(0)
+  const fff = () => {
+    // return React.createElement()
+  }
+  return (
+    <div>
+      <div>{props.children}</div>
+      <p>count: {count}</p>
+      <button
+        onClick={() =>
+          setCount((count) => {
+            debugger
+            console.log(props.children)
+            return count + 1
+          })
+        }
+      >
+        Add
+      </button>
+    </div>
+  )
+}
+
 const Book = () => {
   const [userId, setUserId] = useState(1)
-
+  const [show, setShow] = useState(true)
   useEffect(() => {
     // console.log(`useEffect data: ${JSON.stringify(data)}}`)
     return () => {
@@ -20,10 +44,13 @@ const Book = () => {
     console.log('1111')
     setUserId(userId + 1)
     debugger
+    // eslint-disable-next-line babel/no-invalid-this
+    console.log(this)
   }
+  // eslint-disable-next-line babel/no-invalid-this
+  let _this = this
   const PostHandler: React.MouseEventHandler<HTMLDivElement> = (e) => {
     console.log('222222')
-    debugger
     // let portal = document.getElementById('protal')
     // ReactDOM.createPortal('123123', portal || document.body)
   }
@@ -62,6 +89,49 @@ const Book = () => {
 
   return (
     <div className={cx({ book: true })}>
+      {show && (
+        <Counter name="0000">
+          <Aa />
+        </Counter>
+      )}
+      <button onClick={() => setShow((show) => !show)}>Toggle</button>
+      <br />
+      11111111111111111
+      <div>
+        <Link to={'/'}> index </Link>
+      </div>
+      <br />
+      <div>
+        <Link to={'/team'}> team </Link>
+      </div>
+      <div onClick={GetHandler}>on click get</div>
+      <div
+        onClick={(e) => {
+          log()
+          PostHandler(e)
+        }}
+      >
+        on click post
+      </div>
+      {/* {show && (
+        <KeepAlive>
+          <Counter />
+        </KeepAlive>
+      )}
+      <button onClick={() => setShow((show) => !show)}>Toggle</button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div>
         <Link to={'/'}> index </Link>
       </div>
@@ -98,8 +168,8 @@ const Book = () => {
       >
         on click post
       </div>
-      this is book
+      this is book */}
     </div>
   )
 }
-export default Book
+export default memo(Book)

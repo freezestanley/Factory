@@ -10,3 +10,4 @@ __snapshots__
 coverage
 coverage/*
 */dist
+yarn-error.log

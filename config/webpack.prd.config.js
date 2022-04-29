@@ -14,7 +14,6 @@ module.exports = merge(BaseConfig, {
   stats: {
     children: false // 不输出子模块的打包信息
   },
-  devtool: 'nosources-source-map',
   cache: {
     allowCollectingMemory: true
   },
