@@ -42,26 +42,5 @@ src
     ├─index.ts
     └─other....
 ```
-```mermaid
-graph LR
 
-A((A))
-B((B))
-C((C))
-D((D))
-E((E))
-F((F))
-G((G))
-H((H))
-I((I))
-J((J)) 
-K((K))
-A-->B
-A-->C
-A-->D
-A-->F
-A-->H
-A-->I
-A-->J
-```
 
