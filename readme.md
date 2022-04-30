@@ -12,7 +12,7 @@ docker run -it -dp 9000:9000 -w /app -v "${PWD}:/app" 工作项目镜像 sh -c "
 ```
 src
 ├─Api
-├─Components
+├─Components                    //公共组件
 │    ├─Home
 │    │  ├─assets
 │    │  │  ├─components
@@ -22,10 +22,10 @@ src
 │    │  ├─index.less
 │    │  └─hooks.ts
 │    └─other....
-├─Layer
+├─Layer                         //布局文件
 │  ├─index.tsx
 │  └─index.less
-├─Pages
+├─Pages                         //项目文件
 │    ├─Home
 │    │  ├─assets
 │    │  │  ├─components
@@ -35,8 +35,8 @@ src
 │    │  ├─index.less
 │    │  └─hooks.ts
 │    └─other....
-├─Theme
-└─Toolbox
+├─Theme                         //主题文件
+└─Toolbox                       //工具
     ├─debugger.tsx
     ├─goDB.less
     ├─index.ts
