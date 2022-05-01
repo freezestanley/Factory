@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import Style from './index.less'
+import Style from './index.style.less'
 import camera from './assets/img/camera.svg'
 import a from './assets/img/a.png'
 import { Link } from 'react-router-dom'

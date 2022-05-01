@@ -1,6 +1,6 @@
 import React, { useEffect, useState, memo } from 'react'
 import classNames from 'classnames/bind'
-import Style from './index.less'
+import Style from './index.style.less'
 import { Link } from 'react-router-dom'
 import KeepAlive from 'react-activation'
 import Grally from '@/Components/Grally'

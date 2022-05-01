@@ -5,13 +5,21 @@ import AppRouter from './Router'
 import './global.less'
 import { AuthProvider, RequireAuth } from '@/Router/Auth'
 import Debugger from '@/Toolbox/debugger'
+import { i18n } from '@lingui/core'
+import { I18nProvider } from '@lingui/react'
+import { messages } from './locales/en/messages'
+
+i18n.load('en', messages)
+i18n.activate('en')
 
 const Application = () => {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <AppRouter />
-      </AuthProvider>
+      <I18nProvider i18n={i18n}>
+        <AuthProvider>
+          <AppRouter />
+        </AuthProvider>
+      </I18nProvider>
     </BrowserRouter>
     // <BrowserRouter>
     //   <Routes>

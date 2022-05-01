@@ -144,7 +144,9 @@
   "explorer.experimental.fileNesting.enabled": true,
   "explorer.experimental.fileNesting.expand": false,
   "explorer.experimental.fileNesting.patterns": {
-    "index.tsx": "index*.less,index*.sass,index*.scss,index*.css,index*.jpg,index*.svg,index*.json,index.*,hooks.ts"
+    "*.ts": "$(capture).js, $(capture).*.ts,$(capture).*.less,$(capture).*.sass,$(capture).*.scss,$(capture).*.css",
+    "*.tsx": "$(capture).*.ts, $(capture).*.tsx,$(capture).*.less,$(capture).*.sass,$(capture).*.scss,$(capture).*.css",
+    "package.json": ".*, commitlint.config.js,jest.config.ts,postcss.config.js,.eslintignore"
   }
   /**--filer nesting end--**/
 }
