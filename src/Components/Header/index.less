@@ -1,0 +1,21 @@
+.ml10 {
+  margin-left: 10px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.header {
+  text-align: center;
+  font-size: 14px;
+  height: 80px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  & > div:first-child {
+    .ml10();
+  }
+  & > div:last-child {
+    .mr10();
+  }
+}

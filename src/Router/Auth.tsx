@@ -1,5 +1,5 @@
-import React, { createContext, ReactElement, useContext, useState } from 'react'
-import { Navigate, useNavigate, useLocation } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Navigate, useLocation } from 'react-router-dom'
 
 interface AuthContextType {
   user: boolean
@@ -9,7 +9,13 @@ interface AuthContextType {
 let AuthContext = React.createContext<AuthContextType>(null!)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+  let location = useLocation()
   let [user, setUser] = React.useState<any>(false)
+
+  useEffect(() => {
+    //监听页面变化后做点什么
+    console.log(`location: ${JSON.stringify(location)}`)
+  }, [location])
 
   let signin = (newUser: string, callback: VoidFunction) => {
     return new Promise((): void => {

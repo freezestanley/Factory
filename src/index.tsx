@@ -8,11 +8,11 @@ import Debugger from '@/Toolbox/debugger'
 
 const Application = () => {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <AppRouter />
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
     // <BrowserRouter>
     //   <Routes>
     //     <Route index element={<Car />} />
