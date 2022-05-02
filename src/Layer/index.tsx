@@ -37,6 +37,7 @@ const Layer = (type: {
       stage.removeEventListener('scroll', scrollHandler)
     }
   }, [scrollHandler])
+
   return (
     <div className={Style.Layer}>
       <div>

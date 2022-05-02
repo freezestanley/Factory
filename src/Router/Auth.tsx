@@ -14,7 +14,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     //监听页面变化后做点什么
-    console.log(`location: ${JSON.stringify(location)}`)
+    // console.log(`页面变化的守卫`)
   }, [location])
 
   let signin = (newUser: string, callback: VoidFunction) => {

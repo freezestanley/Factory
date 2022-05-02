@@ -1,36 +1,19 @@
+// import 'regenerator-runtime/runtime'
 import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppRouter from './Router'
-import './global.less'
 import { AuthProvider, RequireAuth } from '@/Router/Auth'
 import Debugger from '@/Toolbox/debugger'
-import { i18n } from '@lingui/core'
-import { I18nProvider } from '@lingui/react'
-import { messages } from './locales/en/messages'
-
-i18n.load('en', messages)
-i18n.activate('en')
-
+import './global.less'
 const Application = () => {
   return (
     <BrowserRouter>
-      <I18nProvider i18n={i18n}>
-        <AuthProvider>
-          <AppRouter />
-        </AuthProvider>
-      </I18nProvider>
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
     </BrowserRouter>
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route index element={<Car />} />
-    //     <Route path="invoices" element={<App />}>
-    //       <Route path=":invoiceId" element={<Shop />} />
-    //       <Route path="sent" element={<Book />} />
-    //       <Route index element={<Car />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
+    // <div>123123123</div>
   )
 }
 

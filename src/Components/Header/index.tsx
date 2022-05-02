@@ -14,9 +14,19 @@ const Header = (props: HeaderType) => {
   }
   return (
     <div className={Style.header}>
-      <div onClick={() => jump(-1)}>返回</div>
+      <div>
+        <span
+          className={`${Style.back}  iconfont if-audit`}
+          onClick={() => jump(-1)}
+        ></span>
+      </div>
       <div>{props.title}</div>
-      <div onClick={() => jump('/')}>首页</div>
+      <div>
+        <span
+          className={`${Style.home} iconfont if-appstore`}
+          onClick={() => jump('/')}
+        ></span>
+      </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import Footer from '@/Components/Footer'
 import { RequireAuth } from '../Auth'
 import Loading from '@/Components/Loading'
 import Home from '@P/Home'
+import List from '@P/List'
 import { AsyncBook, AsyncShop, AsyncTeam } from '../Async'
 
 // const callback = (
@@ -29,11 +30,11 @@ export default function () {
   const LayerHeadRouter = [
     {
       path: 'home',
-      element: <Header title={'this is home'} />
+      element: <Header title={'IF'} />
     },
     {
       path: '*',
-      element: <Header title={'this is *'} />
+      element: <Header title={'IF'} />
     }
   ]
   const LayerFooterRouter = [
@@ -57,6 +58,10 @@ export default function () {
       children: [
         {
           index: true,
+          element: <List />
+        },
+        {
+          path: '/Book',
           element: (
             // <Profiler id="AsyncBook" onRender={callback}>
             <React.Suspense fallback={<Loading />}>

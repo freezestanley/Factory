@@ -146,7 +146,8 @@
   "explorer.experimental.fileNesting.patterns": {
     "*.ts": "$(capture).js, $(capture).*.ts,$(capture).*.less,$(capture).*.sass,$(capture).*.scss,$(capture).*.css",
     "*.tsx": "$(capture).*.ts, $(capture).*.tsx,$(capture).*.less,$(capture).*.sass,$(capture).*.scss,$(capture).*.css",
-    "package.json": ".*, commitlint.config.js,jest.config.ts,postcss.config.js,.eslintignore"
+    "package.json": ".*, commitlint.config.js,jest.config.ts,postcss.config.js,.eslintignore,stylelint.config.js",
+    "*.css": "${capture}.ttf,${capture}.woff,${capture}.woff2"
   }
   /**--filer nesting end--**/
 }

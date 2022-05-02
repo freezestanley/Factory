@@ -14,9 +14,52 @@ const path = require('path')
 const PUBLIC_PATH = '/'
 const isEnvProduction = process.env.NODE_ENV === 'production'
 // || process.env.NODE_ENV === 'development'
+// const cssLoader = {
+//   loader: 'css-loader',
+//   options: {
+//     url: true,
+//     import: true,
+//     sourceMap: false,
+//     importLoaders: 1,
+//     modules: {
+//       mode: (resourcePath) => {
+//         if (/pure.less$/i.test(resourcePath)) {
+//           return 'pure'
+//         }
 
-const localClass = `${require('../package.json').name}_[local]_[hash:base64:5]`
+//         if (/global.less$/i.test(resourcePath)) {
+//           return 'global'
+//         }
 
+//         return 'local'
+//       },
+//       localIdentName: localClass
+//     }
+//   }
+// }
+
+const cssLoader = {
+  loader: 'css-loader',
+  options: {
+    sourceMap: false,
+    modules: {
+      mode: (resourcePath) => {
+        if (/pure/gi.test(resourcePath)) {
+          return 'pure'
+        }
+
+        if (/global/gi.test(resourcePath)) {
+          return 'global'
+        }
+
+        return 'local'
+      },
+      localIdentName: `${
+        require('../package.json').name
+      }_[local]_[hash:base64:5]`
+    }
+  }
+}
 module.exports = {
   entry: {
     app: {
@@ -108,19 +151,7 @@ module.exports = {
         test: /\.css$/i,
         use: [
           isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              url: true,
-              import: true,
-              sourceMap: false,
-              importLoaders: 1,
-              modules: {
-                auto: true,
-                localIdentName: localClass
-              }
-            }
-          },
+          cssLoader,
           'postcss-loader'
         ]
       },
@@ -128,35 +159,7 @@ module.exports = {
         test: /\.less$/i,
         use: [
           isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              url: true,
-              import: true,
-              sourceMap: false,
-              importLoaders: 1,
-              modules: {
-                mode: (resourcePath) => {
-                  if (/pure.less$/i.test(resourcePath)) {
-                    return 'pure'
-                  }
-
-                  if (/global.less$/i.test(resourcePath)) {
-                    return 'global'
-                  }
-
-                  return 'local'
-                },
-                localIdentName: localClass
-                // exportLocalsConvention: function (name) {
-                //   console.log('@@@@@@@@@@@@@@@@@@@@@@@@@')
-                //   console.log(name)
-                //   console.log('@@@@@@@@@@@@@@@@@@@@@@@@@')
-                //   return name
-                // }
-              }
-            }
-          },
+          cssLoader,
           'postcss-loader',
           {
             loader: 'less-loader',
@@ -170,18 +173,7 @@ module.exports = {
         test: /\.((sa|sc)ss)$/i,
         use: [
           isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              url: true,
-              import: true,
-              sourceMap: false,
-              importLoaders: 1,
-              modules: {
-                localIdentName: localClass
-              }
-            }
-          },
+          cssLoader,
           'postcss-loader',
           {
             loader: 'sass-loader',

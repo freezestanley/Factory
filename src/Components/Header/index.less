@@ -6,16 +6,25 @@
 }
 .header {
   text-align: center;
-  font-size: 14px;
+  font-size: 36px;
   height: 80px;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 1px 10px #ddd;
   & > div:first-child {
     .ml10();
   }
   & > div:last-child {
     .mr10();
+  }
+}
+
+.back,
+.home {
+  display: block;
+  &:before {
+    font-size: 40px;
   }
 }
