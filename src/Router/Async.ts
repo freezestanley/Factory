@@ -1,5 +1,15 @@
 import { lazy } from '@loadable/component'
-
+export const AsyncImmer = lazy(
+  () =>
+    import(
+      /*
+      webpackChunkName: "Immer",
+      webpackPrefetch: true,
+      webpackPreload: true
+      */
+      `@P/Immer`
+    )
+)
 export const AsyncBook = lazy(
   () =>
     import(

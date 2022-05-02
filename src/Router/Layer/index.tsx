@@ -7,7 +7,9 @@ import { RequireAuth } from '../Auth'
 import Loading from '@/Components/Loading'
 import Home from '@P/Home'
 import List from '@P/List'
-import { AsyncBook, AsyncShop, AsyncTeam } from '../Async'
+import Less from '@P/Less'
+import File from '@P/File'
+import { AsyncBook, AsyncShop, AsyncTeam, AsyncImmer } from '../Async'
 
 // const callback = (
 //   id,
@@ -59,6 +61,24 @@ export default function () {
         {
           index: true,
           element: <List />
+        },
+        {
+          path: '/immer',
+          element: (
+            // <Profiler id="AsyncBook" onRender={callback}>
+            <React.Suspense fallback={<Loading />}>
+              <AsyncImmer />
+            </React.Suspense>
+            // </Profiler>
+          )
+        },
+        {
+          path: '/less',
+          element: <Less />
+        },
+        {
+          path: '/file',
+          element: <File />
         },
         {
           path: '/Book',

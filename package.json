@@ -143,7 +143,8 @@
     "react-intersection-observer": "^8.34.0",
     "react-lazy-load-image-component": "^1.5.4",
     "react-router-dom": "^6.3.0",
-    "umi-request": "^1.4.0"
+    "umi-request": "^1.4.0",
+    "use-immer": "^0.7.0"
   },
   "lint-staged": {
     "src/**/*.{js,ts,jsx,tsx}": [

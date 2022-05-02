@@ -6,6 +6,7 @@ import AppRouter from './Router'
 import { AuthProvider, RequireAuth } from '@/Router/Auth'
 import Debugger from '@/Toolbox/debugger'
 import './global.less'
+import { enableAllPlugins } from 'immer'
 const Application = () => {
   return (
     <BrowserRouter>
@@ -38,3 +39,4 @@ if (module.hot) {
   module.hot.accept()
 }
 Debugger()
+enableAllPlugins()
