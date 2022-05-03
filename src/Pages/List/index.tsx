@@ -9,7 +9,7 @@ const item: { label?: string; link: string; descript?: string }[] = [
   { label: 'File', link: '/file', descript: '项目文件结构' },
   { label: 'Request', link: '/request', descript: '' },
   { label: 'Layer', link: '/layer', descript: '' },
-  { label: 'Auther', link: '/auther', descript: '' }
+  { label: 'Other', link: '/other', descript: '' }
 ]
 const List = () => {
   let navigate = useNavigate()

@@ -9,6 +9,7 @@ import Home from '@P/Home'
 import List from '@P/List'
 import Less from '@P/Less'
 import File from '@P/File'
+import Other from '@P/Other'
 import { AsyncBook, AsyncShop, AsyncTeam, AsyncImmer } from '../Async'
 
 // const callback = (
@@ -81,6 +82,10 @@ export default function () {
           element: <File />
         },
         {
+          path: '/other',
+          element: <Other />
+        },
+        {
           path: '/Book',
           element: (
             // <Profiler id="AsyncBook" onRender={callback}>
@@ -89,10 +94,6 @@ export default function () {
             </React.Suspense>
             // </Profiler>
           )
-        },
-        {
-          path: '/home',
-          element: <Home />
         },
         {
           path: '/shop',
