@@ -2,6 +2,7 @@ import React from 'react'
 import Style from './index.style.less'
 import Image from '@/Components/Image'
 import FileNesting from './assets/imgs/filernesting.png'
+import FileImage from './assets/imgs/file.png'
 const File = () => {
   return (
     <div className={Style.File}>
@@ -9,10 +10,9 @@ const File = () => {
       <h3>filer nesting</h3>
       <Image src={FileNesting} />
       <p>基于vscode extensions filer nesting</p>
-      <h3>global.less全局样式</h3>
+      <h3>file</h3>
+      <Image src={FileImage} />
       <p>src/global.less设置项目全局样式</p>
-      <h3>Project Theme设置</h3>
-      <p></p>
     </div>
   )
 }

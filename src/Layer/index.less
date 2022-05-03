@@ -8,12 +8,15 @@
   bottom: 0;
   height: 100%;
   & > div {
+    z-index: 2;
     &:nth-child(2) {
       flex: 1;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       overflow: hidden;
       overflow-y: auto;
+      position: relative;
+      z-index: 1;
     }
   }
 }
