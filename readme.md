@@ -16,15 +16,19 @@ src
 │    ├─Home
 │    │  ├─assets
 │    │  │  ├─components
-│    │  │  ├─img
+│    │  │  ├─imgs
 │    │  │  └─test
 │    │  ├─index.tsx
-│    │  ├─index.less
-│    │  └─hooks.ts
+│    │  ├─index.style.less
+│    │  └─index.hooks.ts
 │    └─other....
 ├─Layer                         //布局文件
 │  ├─index.tsx
-│  └─index.less
+│  └─index.style.less
+├─Router                         //布局文件
+│  ├─index.tsx
+│  └─Layer
+│    ├─index.tsx                //Layer模版的文件布局
 ├─Pages                         //项目文件
 │    ├─Home
 │    │  ├─assets
@@ -32,10 +36,10 @@ src
 │    │  │  ├─img
 │    │  │  └─test
 │    │  ├─index.tsx
-│    │  ├─index.less
-│    │  └─hooks.ts
+│    │  ├─index.style.less
+│    │  └─index.hooks.ts
 │    └─other....
-├─Theme                         //主题文件
+├─Theme                         //全局样式
 └─Toolbox                       //工具
     ├─debugger.tsx
     ├─goDB.less
