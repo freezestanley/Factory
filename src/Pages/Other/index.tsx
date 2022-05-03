@@ -30,11 +30,9 @@ const Other = () => {
       </pre>
       <h1>lazy load</h1>
       <h3>{`src/router/Async`}</h3>
-      <p>
-        基于@loadable/component
-        <br />
-        <pre>
-          <code>{`import { lazy } from '@loadable/component'
+      <p>基于@loadable/component</p>
+      <pre>
+        <code>{`import { lazy } from '@loadable/component'
 export const AsyncImmer = lazy(
   () =>
     import(
@@ -46,8 +44,8 @@ export const AsyncImmer = lazy(
       '@P/Immer'
     )
 )`}</code>
-        </pre>
-      </p>
+      </pre>
+
       <a href="https://www.npmjs.com/package/@loadable/component">
         @loadable/component
       </a>
