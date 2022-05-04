@@ -48,7 +48,7 @@ const cssLoader = {
           return 'pure'
         }
 
-        if (/global/gi.test(resourcePath)) {
+        if (/global|theme|Theme/gi.test(resourcePath)) {
           return 'global'
         }
 
@@ -58,6 +58,13 @@ const cssLoader = {
         require('../package.json').name
       }_[local]_[hash:base64:5]`
     }
+  }
+}
+const style_resources = {
+  loader: 'style-resources-loader',
+  options: {
+    patterns: path.resolve(__dirname, '../src/Theme/variables/*.less'),
+    injector: 'prepend'
   }
 }
 module.exports = {
@@ -152,7 +159,8 @@ module.exports = {
         use: [
           isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           cssLoader,
-          'postcss-loader'
+          'postcss-loader',
+          style_resources
         ]
       },
       {
@@ -166,7 +174,8 @@ module.exports = {
             options: {
               lessOptions: { strictMath: true, javascriptEnabled: true }
             }
-          }
+          },
+          style_resources
         ]
       },
       {
@@ -184,7 +193,8 @@ module.exports = {
                 outputStyle: 'compressed'
               }
             }
-          }
+          },
+          style_resources
         ]
       }
     ]

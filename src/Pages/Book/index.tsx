@@ -30,22 +30,7 @@ function Counter(props: { children: React.ReactChild; name: string }) {
     </div>
   )
 }
-const grally = [
-  'http://www.wallcoo.com/sport/NBA_Lakers_2009_Champions/wallpapers/1920x1200/09poD2_wallpaper.jpg',
-  'http://www.wallcoo.com/sport/NBA_Lakers_2009_Champions/wallpapers/1920x1200/09poD3_wallpaper.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/Ewen-Stenhouse.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/Ben-Newman.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/Ben-Newman-2.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/Dan-Cassaro.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/broken-social-scene-alex-westagate.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/broken-social-scene_doublenaut.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/broken-social-scene-feel-good-lost-wallpaper.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/lisa-congdon-fives.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/lisa-congdon-rocks.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/lisa-congdon-rocks.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/kim-holtermand-power-station.jpg',
-  'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/kim-holtermand-koncerthuset.jpg'
-]
+
 const Book = () => {
   const [userId, setUserId] = useState(1)
   const [show, setShow] = useState(true)
@@ -105,7 +90,6 @@ const Book = () => {
 
   return (
     <div className={cx({ book: true })}>
-      <Grally item={grally} />
       {show && (
         <Counter name="0000">
           <Aa />

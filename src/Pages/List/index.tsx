@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Style from './index.style.less'
 import { useNavigate } from 'react-router-dom'
 import Image from '@/Components/Image'
 import Logo from './logo.png'
+import { useTheme, THEME } from '@/Theme'
 const item: { label?: string; link: string; descript?: string }[] = [
   { label: 'Immer', link: '/immer', descript: '使用Immer不可变数据' },
-  { label: 'File', link: '/file', descript: '项目文件结构' },
-  { label: 'Request', link: '/request', descript: '' }
+  { label: 'Grally', link: '/grally', descript: '图库' },
+  { label: 'File', link: '/file', descript: '项目文件结构' }
 ]
+
 const List = () => {
-  let navigate = useNavigate()
+  const navigate = useNavigate()
+  const { theme, setTheme } = useTheme()
+
   return (
     <div className={Style.List}>
       <Image src={Logo} className={Style.logo} />
@@ -24,6 +28,36 @@ const List = () => {
         })}
       </ul>
       <hr />
+      <h1>缓存</h1>
+      <h3>PWA</h3>
+      <p>
+        只在生产环境生效
+        <br />
+        js: 'NetworkFirst'
+        <br />
+        html|css|png|jpg: StaleWhileRevalidate
+        <br />
+        /api/: 'NetworkFirst'
+      </p>
+      <hr />
+      <h1>Toolbox</h1>
+      <h3>数据持久化 -- goDB</h3>
+      <pre>
+        <code>
+          {`const user = dataDb?.table('user')
+let a1 = await user.add({
+  name: 'xxx',
+  age: 'fsdfasd'
+})
+let b1 = await user.get(a1.id)
+console.log(b1)`}
+        </code>
+      </pre>
+      <h3>请求-- request</h3>
+      <p>useRequest+umi-request，暴露出一个Frequest实例，</p>
+      <h3>debugger</h3>
+      <p>url=a?vconsole=true 将开启vconsole</p>
+      <hr />
       <h1>样式设置</h1>
       <h3>css-loader mode: global local</h3>
       <p>
@@ -32,8 +66,55 @@ const List = () => {
       <h3>global.less全局样式</h3>
       <p>src/global.less设置项目全局样式</p>
       <h3>Project Theme设置</h3>
+      <div>
+        <button onClick={() => setTheme(THEME.LIGHT)}>Light</button>
+        <button onClick={() => setTheme(THEME.DARK)}>Dark</button>
+      </div>
+      <div className={Style.box}>{theme}box</div>
+      <p>
+        参见src/Theme
+        <br />
+        ThemeProvider 接收3个属性
+        <br />
+        1.children
+        <br />
+        2.container 默认为document.documentElement
+        <br />
+        3.defaultTheme默认为 THEME.LIGHT
+        <br />
+      </p>
+      <pre>
+        <code>{`export const enum THEME{
+          LIGHT = 'light',
+          DARK = 'dark'}
+          `}</code>
+      </pre>
+      <div>useTheme</div>
+      <pre>
+        <code>{`import { useTheme, THEME } from '@/Theme'
+const {(theme, setTheme)} = useTheme()`}</code>
+      </pre>
+      <div>根据Theme自定义样式</div>
+      <pre>
+        <code>{`:global(.is-light) {
+  .List .box {
+    background: #000;
+  }
+}
+:global(.is-dark) {
+  .List .box {
+    background: #f00;
+    width: 300px;
+    height: 300px;
+  }
+}
+`}</code>
+      </pre>
+      <div>var(变量,默认值)</div>
+      <pre>
+        <code>background: var(--header-bg, #fcc);</code>
+      </pre>
       <hr />
-
       <h1>Image</h1>
       <h3>load-image-component</h3>
       <p>{`src / component-- > Image`}</p>

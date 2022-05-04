@@ -1,4 +1,15 @@
 import { lazy } from '@loadable/component'
+export const AsyncGrally = lazy(
+  () =>
+    import(
+      /*
+      webpackChunkName: "Immer",
+      webpackPrefetch: true,
+      webpackPreload: true
+      */
+      `@P/Grally`
+    )
+)
 export const AsyncImmer = lazy(
   () =>
     import(
@@ -41,16 +52,5 @@ export const AsyncTeam = lazy(
       webpackPreload: true
       */
       `@P/Team`
-    )
-)
-export const AsyncAsset = lazy(
-  () =>
-    import(
-      /*
-      webpackChunkName: "Asset",
-      webpackPrefetch: true,
-      webpackPreload: true
-      */
-      `@P/Asset`
     )
 )

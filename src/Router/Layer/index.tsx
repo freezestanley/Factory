@@ -7,10 +7,15 @@ import { RequireAuth } from '../Auth'
 import Loading from '@/Components/Loading'
 import Home from '@P/Home'
 import List from '@P/List'
-import Less from '@P/Less'
 import File from '@P/File'
 import Other from '@P/Other'
-import { AsyncBook, AsyncShop, AsyncTeam, AsyncImmer } from '../Async'
+import {
+  AsyncBook,
+  AsyncShop,
+  AsyncTeam,
+  AsyncImmer,
+  AsyncGrally
+} from '../Async'
 
 // const callback = (
 //   id,
@@ -74,10 +79,6 @@ export default function () {
           )
         },
         {
-          path: '/less',
-          element: <Less />
-        },
-        {
           path: '/file',
           element: <File />
         },
@@ -91,6 +92,16 @@ export default function () {
             // <Profiler id="AsyncBook" onRender={callback}>
             <React.Suspense fallback={<Loading />}>
               <AsyncBook />
+            </React.Suspense>
+            // </Profiler>
+          )
+        },
+        {
+          path: '/Grally',
+          element: (
+            // <Profiler id="AsyncBook" onRender={callback}>
+            <React.Suspense fallback={<Loading />}>
+              <AsyncGrally />
             </React.Suspense>
             // </Profiler>
           )
