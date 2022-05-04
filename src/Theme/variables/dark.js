@@ -1,4 +1,4 @@
 const darkTheme = {
-  '--header-bg': '#000'
+  '--header-bg': '#333'
 }
 export default darkTheme
