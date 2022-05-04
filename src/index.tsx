@@ -9,6 +9,12 @@ import Debugger from '@/Toolbox/debugger'
 import './global.less'
 import { enableAllPlugins } from 'immer'
 import { ThemeProvider } from '@/Theme'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
+
+function FallbackComponent() {
+  return <div>warning error</div>
+}
 
 const app = document.getElementById('app')
 // const Application = () => {
@@ -26,15 +32,36 @@ const app = document.getElementById('app')
 
 // ReactDom.render(<Application />, app)
 const root = createRoot(app!)
-root.render(
-  <BrowserRouter>
-    <AuthProvider>
-      <ThemeProvider>
-        <AppRouter />
-      </ThemeProvider>
-    </AuthProvider>
-  </BrowserRouter>
-)
+// eslint-disable-next-line no-undef
+if (Mode === 'production') {
+  // Sentry.init({
+  //   dsn: '',
+  //   integrations: [new BrowserTracing()],
+  //   tracesSampleRate: 1.0
+  // })
+  root.render(
+    // <Sentry.ErrorBoundary fallback={FallbackComponent} showDialog>
+    <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider>
+          <AppRouter />
+        </ThemeProvider>
+      </AuthProvider>
+    </BrowserRouter>
+    // </Sentry.ErrorBoundary>
+  )
+} else {
+  root.render(
+    <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider>
+          <AppRouter />
+        </ThemeProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  )
+}
+
 // eslint-disable-next-line no-undef
 if (Mode === 'production') {
   if ('serviceWorker' in navigator) {
@@ -50,7 +77,6 @@ if (Mode === 'production') {
     })
   }
 }
-// eslint-disable-next-line
 if (module.hot) {
   module.hot.accept()
 }

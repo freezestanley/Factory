@@ -8,15 +8,16 @@ const webpack = require('webpack')
 // const { extendDefaultPlugins } = require('svgo')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const SentryCliPlugin = require('@sentry/webpack-plugin')
 
 module.exports = merge(BaseConfig, {
   mode: 'production',
   stats: {
     children: false // 不输出子模块的打包信息
   },
-  cache: {
-    allowCollectingMemory: true
-  },
+  // cache: {
+  //   allowCollectingMemory: true
+  // },
   optimization: {
     removeEmptyChunks: true,
     usedExports: true,
@@ -69,9 +70,9 @@ module.exports = merge(BaseConfig, {
     },
     splitChunks: {
       chunks: 'all',
-      minSize: 20000,
       minRemainingSize: 0,
       minChunks: 1,
+      maxSize: 200000,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
       enforceSizeThreshold: 50000,
@@ -79,7 +80,8 @@ module.exports = merge(BaseConfig, {
         defaultVendors: {
           name: 'vendors',
           test: /[\\/]node_modules[\\/]/,
-          minChunks: 2,
+          maxSize: 200000,
+          minChunks: 1,
           priority: -10,
           reuseExistingChunk: true
         },
@@ -182,5 +184,11 @@ module.exports = merge(BaseConfig, {
         }
       ]
     })
+    // new SentryCliPlugin({
+    //   release: Date.now(), // 唯一标识，可以用其他的比如 hash
+    //   include: './dist', // 要上传的文件夹 有的叫 dist
+    //   ignore: ['node_modules', 'config-overrides.js'],
+    //   configFile: '.sentryclirc'
+    // })
   ]
 })

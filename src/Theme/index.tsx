@@ -20,9 +20,9 @@ function setRoot(param: string): void {
   } else if (param === 'dark') {
     theme = darkTheme
   }
-  let adf: { [key: string]: string } = { ...theme }
-  for (let i in adf) {
-    document.documentElement.style.setProperty(i, adf[i])
+  let rootPro: { [key: string]: string } = { ...theme }
+  for (let i in rootPro) {
+    document.documentElement.style.setProperty(i, rootPro[i])
   }
 }
 export function ThemeProvider({

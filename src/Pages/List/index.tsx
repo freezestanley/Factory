@@ -28,6 +28,15 @@ const List = () => {
         })}
       </ul>
       <hr />
+      <h1>Sentry</h1>
+      <p>
+        接入Sentry修改src/index.tsx
+        <br />
+        .sentryclirc修改配置
+        <br />
+        修改webpack.prd.config.js sentry plugins
+      </p>
+      <hr />
       <h1>缓存</h1>
       <h3>PWA</h3>
       <p>
@@ -130,7 +139,27 @@ const {(theme, setTheme)} = useTheme()`}</code>
       <hr />
       <h1>Layer</h1>
       <h3>{`src/router`}</h3>
-      <p>asdf</p>
+      <p>
+        采取分类模版的概念
+        <br />
+        Layer对应的title+menu布局的模版
+        <br />
+        基于useOutletContext
+        <br />
+        headerDisplay —— 头部显示状态
+        <br />
+        setHeaderDisplay —— 控制头部显示
+        <br />
+        footerDisplay —— 底部显示状态
+        <br />
+        setFooterDisplay —— 控制底部显示
+        <br />
+        headTitle —— 获取title
+        <br />
+        setHeadTitle —— 控制title
+        <br />
+        stageScrollEvent —— 获取stage滚动
+      </p>
       <h1>Auth</h1>
       <h3>{`src/router/Auth`}</h3>
       <p>基于Provider在router通过</p>

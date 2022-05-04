@@ -22,6 +22,7 @@ interface Window {
   BUILD: string
   VConsole: function
   location: string
+  Mode: string
 }
 
 declare let module: {
