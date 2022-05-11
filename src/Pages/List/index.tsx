@@ -4,15 +4,33 @@ import { useNavigate } from 'react-router-dom'
 import Image from '@/Components/Image'
 import Logo from './logo.png'
 import { useTheme, THEME } from '@/Theme'
+import create from 'zustand'
+
 const item: { label?: string; link: string; descript?: string }[] = [
   { label: 'Immer', link: '/immer', descript: '使用Immer不可变数据' },
   { label: 'Grally', link: '/grally', descript: '图库' },
-  { label: 'File', link: '/file', descript: '项目文件结构' }
+  { label: 'File', link: '/file', descript: '项目文件结构' },
+  { label: 'Formily', link: '/Formily', descript: 'formily' }
 ]
 
+type bear = {
+  bears: number
+  removeAllBears: () => any
+  increasePopulation: () => any
+}
+const useStore = create<bear>(
+  (set, get): bear => ({
+    bears: 0,
+    removeAllBears: () => set({ bears: 0 }),
+    increasePopulation: () =>
+      set((state: { bears: number }) => ({ bears: get().bears + 1 }))
+  })
+)
+const unsub1 = useStore.subscribe(console.log)
 const List = () => {
   const navigate = useNavigate()
   const { theme, setTheme } = useTheme()
+  const { bears, increasePopulation, removeAllBears } = useStore()
 
   return (
     <div className={Style.List}>
@@ -28,14 +46,38 @@ const List = () => {
         })}
       </ul>
       <hr />
-      <h1>Sentry</h1>
-      <p>
-        接入Sentry修改src/index.tsx
-        <br />
-        .sentryclirc修改配置
-        <br />
-        修改webpack.prd.config.js sentry plugins
-      </p>
+      <h1>zustand</h1>
+      <pre>
+        <code>
+          {`const useStore = create<bear>(
+  (set, get): bear => ({
+    bears: 0,
+    removeAllBears: () => set({ bears: 0 }),
+    increasePopulation: () =>
+      set((state: { bears: number })
+      => ({ bears: get().bears + 1 }))
+  })
+)
+const unsub1 =
+useStore.subscribe(console.log)`}
+        </code>
+      </pre>
+      <div>
+        <h1>{bears}</h1>
+        <button onClick={increasePopulation}>up</button>
+        <button onClick={removeAllBears}>down</button>
+      </div>
+      <hr />
+      <h1>Monorepo</h1>
+      <p>Monorepo pnpm workspace</p>
+      <pre>
+        <code>
+          packages <br />
+          |-Factory <br />
+          |-Serve <br />
+          pnpm-workspace.yaml
+        </code>
+      </pre>
       <hr />
       <h1>缓存</h1>
       <h3>PWA</h3>
@@ -193,6 +235,15 @@ export const AsyncImmer = lazy(
       <a href="https://www.npmjs.com/package/@loadable/component">
         @loadable/component
       </a>
+      <hr />
+      <h1>Sentry</h1>
+      <p>
+        接入Sentry修改src/index.tsx
+        <br />
+        .sentryclirc修改配置
+        <br />
+        修改webpack.prd.config.js sentry plugins
+      </p>
     </div>
   )
 }

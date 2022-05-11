@@ -139,7 +139,7 @@ module.exports = merge(BaseConfig, {
             // 超过10s使用缓存做为回退方案。
             networkTimeoutSeconds: 3,
             // 为此路由指定自定义缓存名称。
-            cacheName: 'factory-api-cache',
+            cacheName: 'if-api-cache',
             // 配置自定义缓存过期。
             expiration: {
               maxEntries: 5,
@@ -154,8 +154,8 @@ module.exports = merge(BaseConfig, {
             },
             // 配置哪些response是可缓存的。
             cacheableResponse: {
-              statuses: [0, 200],
-              headers: { 'x-test': 'true' }
+              statuses: [0, 200]
+              // headers: { 'x-test': 'true' }
             },
             // 配置广播缓存更新插件。
             // broadcastUpdate: {

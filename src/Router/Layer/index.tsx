@@ -9,6 +9,7 @@ import Home from '@P/Home'
 import List from '@P/List'
 import File from '@P/File'
 import Other from '@P/Other'
+import Formily from '@P/Formily'
 import {
   AsyncBook,
   AsyncShop,
@@ -77,6 +78,10 @@ export default function () {
             </React.Suspense>
             // </Profiler>
           )
+        },
+        {
+          path: '/formily',
+          element: <Formily />
         },
         {
           path: '/file',

@@ -11,7 +11,22 @@ const CopyPlugin = require('copy-webpack-plugin')
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const path = require('path')
 
-const PUBLIC_PATH = '/'
+const threadLoader = require('thread-loader') // 开启线程池预热
+threadLoader.warmup(
+  {
+    // 产生的 worker 数量，默认是cpu核心数 - 1
+    // 当 require('os').cpus() 是 undefined时则为 1
+    worker: 2,
+
+    // 闲置时定时删除 worker 进程
+    // 默认为 500ms
+    // 可以设置为无穷大，监视模式(--watch)下可以保持 worker 持续存在
+    poolTimeout: 2000
+  },
+  ['babel-loader']
+)
+
+const PUBLIC_PATH = 'http://localhost:9000/'
 const isEnvProduction = process.env.NODE_ENV === 'production'
 // || process.env.NODE_ENV === 'development'
 // const cssLoader = {
@@ -60,6 +75,7 @@ const cssLoader = {
     }
   }
 }
+
 const style_resources = {
   loader: 'style-resources-loader',
   options: {

@@ -152,7 +152,8 @@
     "react-lazy-load-image-component": "^1.5.4",
     "react-router-dom": "^6.3.0",
     "umi-request": "^1.4.0",
-    "use-immer": "^0.7.0"
+    "use-immer": "^0.7.0",
+    "zustand": "4.0.0-rc.1"
   },
   "lint-staged": {
     "src/**/*.{js,ts,jsx,tsx}": [
