@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge')
 const BaseConfig = require('./webpack.base.config')
 const webpack = require('webpack')
 const path = require('path')
+const { ModuleFederationPlugin } = require('webpack').container
 
 module.exports = merge(BaseConfig, {
   mode: 'development',
@@ -22,5 +23,14 @@ module.exports = merge(BaseConfig, {
       progress: true
     }
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ModuleFederationPlugin({
+      name: 'ccomponent',
+      filename: 'remoteEntry.js',
+      exposes: {
+        '/Footer': './src/Components/Footer/index.tsx'
+      }
+    })
+  ]
 })

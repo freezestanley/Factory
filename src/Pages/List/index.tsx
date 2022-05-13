@@ -10,7 +10,8 @@ import produce from 'immer'
 const item: { label?: string; link: string; descript?: string }[] = [
   { label: 'Immer', link: '/immer', descript: '使用Immer不可变数据' },
   { label: 'Grally', link: '/grally', descript: '图库' },
-  { label: 'File', link: '/file', descript: '项目文件结构' }
+  { label: 'File', link: '/file', descript: '项目文件结构' },
+  { label: 'Formily', link: '/Formily', descript: 'formily' }
 ]
 
 type zustandType = {
@@ -257,6 +258,15 @@ export const AsyncImmer = lazy(
       <a href="https://www.npmjs.com/package/@loadable/component">
         @loadable/component
       </a>
+      <hr />
+      <h1>Sentry</h1>
+      <p>
+        接入Sentry修改src/index.tsx
+        <br />
+        .sentryclirc修改配置
+        <br />
+        修改webpack.prd.config.js sentry plugins
+      </p>
     </div>
   )
 }
