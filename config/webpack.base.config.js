@@ -10,48 +10,9 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const path = require('path')
-
-const threadLoader = require('thread-loader') // 开启线程池预热
-threadLoader.warmup(
-  {
-    // 产生的 worker 数量，默认是cpu核心数 - 1
-    // 当 require('os').cpus() 是 undefined时则为 1
-    worker: 2,
-
-    // 闲置时定时删除 worker 进程
-    // 默认为 500ms
-    // 可以设置为无穷大，监视模式(--watch)下可以保持 worker 持续存在
-    poolTimeout: 2000
-  },
-  ['babel-loader']
-)
-
 const PUBLIC_PATH = 'http://localhost:9000/'
 const isEnvProduction = process.env.NODE_ENV === 'production'
 // || process.env.NODE_ENV === 'development'
-// const cssLoader = {
-//   loader: 'css-loader',
-//   options: {
-//     url: true,
-//     import: true,
-//     sourceMap: false,
-//     importLoaders: 1,
-//     modules: {
-//       mode: (resourcePath) => {
-//         if (/pure.less$/i.test(resourcePath)) {
-//           return 'pure'
-//         }
-
-//         if (/global.less$/i.test(resourcePath)) {
-//           return 'global'
-//         }
-
-//         return 'local'
-//       },
-//       localIdentName: localClass
-//     }
-//   }
-// }
 
 const cssLoader = {
   loader: 'css-loader',
@@ -285,7 +246,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.jsx', '.less', '.css', '.wasm'], // 后缀名自动补全
+    extensions: ['.js', '.ts', '.tsx', '.jsx', '.less', '.css'], // 后缀名自动补全
     alias: {
       '@': path.resolve(__dirname, '../src'),
       '@P': path.resolve(__dirname, '../src/Pages'),
