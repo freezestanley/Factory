@@ -4,16 +4,58 @@ import { useNavigate } from 'react-router-dom'
 import Image from '@/Components/Image'
 import Logo from './logo.png'
 import { useTheme, THEME } from '@/Theme'
+import create from 'zustand'
+import produce from 'immer'
+
 const item: { label?: string; link: string; descript?: string }[] = [
   { label: 'Immer', link: '/immer', descript: '使用Immer不可变数据' },
   { label: 'Grally', link: '/grally', descript: '图库' },
   { label: 'File', link: '/file', descript: '项目文件结构' }
 ]
 
+type zustandType = {
+  bears: number
+  increasePopulation: () => any
+  removeAllBears: () => any
+}
+const useStore = create<zustandType>((set, get) => ({
+  bears: 0,
+  increasePopulation: () =>
+    set((state: { bears: number }) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: get().bears - 1 })
+  // fetch: async (pond) => {
+  //   const response = await fetch(pond)
+  //   set({ fishies: await response.json() })
+  // }
+}))
+
+type Getter<T> = {
+  [K in keyof T as `im${string & K}`]: T[K]
+}
+type zustandImType = Getter<zustandType>
+
+const useImmerStore = create<zustandImType>((set, get) => ({
+  imbears: 0,
+  imincreasePopulation: () =>
+    set(
+      produce((state: { imbears: number }) => ({ imbears: state.imbears + 1 }))
+    ),
+  imremoveAllBears: () =>
+    set(
+      produce((state: { imbears: number }) => ({ imbears: state.imbears - 1 }))
+    )
+}))
+
 const List = () => {
   const navigate = useNavigate()
   const { theme, setTheme } = useTheme()
+  const { bears, increasePopulation, removeAllBears } = useStore(
+    (state) => state
+  )
 
+  const { imbears, imincreasePopulation, imremoveAllBears } = useImmerStore(
+    (state) => state
+  )
   return (
     <div className={Style.List}>
       <Image src={Logo} className={Style.logo} />
@@ -27,6 +69,28 @@ const List = () => {
           )
         })}
       </ul>
+      <hr />
+      <h1>zustand</h1>
+      <div>zustand async</div>
+      <pre>
+        <code>
+          {`fetch: async (pond) => {
+            const response = await fetch(pond)
+            set({ fishies: await response.json() })
+          }`}
+        </code>
+      </pre>
+      <div>
+        <button onClick={increasePopulation}>+</button>
+        <span>{bears}</span>
+        <button onClick={removeAllBears}>-</button>
+      </div>
+      <div>zustand immer</div>
+      <div>
+        <button onClick={imincreasePopulation}>+</button>
+        <span>{imbears}</span>
+        <button onClick={imremoveAllBears}>-</button>
+      </div>
       <hr />
       <h1>Sentry</h1>
       <p>

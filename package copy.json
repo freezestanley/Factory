@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "sideEffects": [
-    "src/*.less",
-    "src/*.tsx"
-  ],
+  "sideEffects": ["src/*.less", "src/*.tsx"],
   "scripts": {
     "Sdev": "node .",
     "analyzer": "cross-env NODE_ENV=analyzer webpack -c ./config/analy.config.js",
@@ -54,6 +51,11 @@
     "@sentry/react": "^6.19.7",
     "@sentry/tracing": "^6.19.7",
     "@sentry/webpack-plugin": "^1.18.9",
+    "@testing-library/dom": "^8.13.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@testing-library/user-event": "^14.1.1",
     "@types/jest": "^27.5.0",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
@@ -151,17 +153,12 @@
     "zustand": "4.0.0-rc.1"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
+    "src/**/*.{js,ts,jsx,tsx}": ["eslint --fix", "prettier --write"],
     "src/**/*.{css,less}": [
       "stylelint --fix --custom-syntax postcss-less --cache",
       "prettier --write"
     ],
-    "**/*.{md,json}": [
-      "prettier --write"
-    ]
+    "**/*.{md,json}": ["prettier --write"]
   },
   "engines": {
     "node": ">=14.18.2"
