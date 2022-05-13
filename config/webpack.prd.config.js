@@ -15,9 +15,6 @@ module.exports = merge(BaseConfig, {
   stats: {
     children: false // 不输出子模块的打包信息
   },
-  // cache: {
-  //   allowCollectingMemory: true
-  // },
   optimization: {
     removeEmptyChunks: true,
     usedExports: true,
@@ -73,16 +70,20 @@ module.exports = merge(BaseConfig, {
       minRemainingSize: 0,
       minChunks: 1,
       maxSize: 200000,
+      minSize: 1000,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
       enforceSizeThreshold: 50000,
       cacheGroups: {
         defaultVendors: {
-          name: 'vendors',
+          priority: 1,
+          name: 'vendor',
           test: /[\\/]node_modules[\\/]/,
-          maxSize: 200000,
+          // test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
           minChunks: 1,
-          priority: -10,
+          maxSize: 150000,
+          minSize: 100000,
+          chunks: 'all',
           reuseExistingChunk: true
         },
         common: {
