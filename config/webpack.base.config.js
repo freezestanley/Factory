@@ -10,7 +10,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const path = require('path')
-const PUBLIC_PATH = 'http://localhost:9000/'
+const PUBLIC_PATH = '/'
 const isEnvProduction = process.env.NODE_ENV === 'production'
 // || process.env.NODE_ENV === 'development'
 
