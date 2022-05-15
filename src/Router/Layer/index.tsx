@@ -70,18 +70,20 @@ export default function () {
           element: <List />
         },
         {
-          path: '/immer',
+          path: '/immer/others/:it',
           element: (
             // <Profiler id="AsyncBook" onRender={callback}>
             <React.Suspense fallback={<Loading />}>
               <AsyncImmer />
             </React.Suspense>
             // </Profiler>
-          )
+          ),
+          meta: { title: 'List' }
         },
         {
           path: '/formily',
-          element: <Formily />
+          element: <Formily />,
+          meta: { title: 'formily' }
         },
         {
           path: '/file',

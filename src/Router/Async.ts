@@ -3,7 +3,7 @@ export const AsyncGrally = lazy(
   () =>
     import(
       /*
-      webpackChunkName: "Immer",
+      webpackChunkName: "Grally",
       webpackPrefetch: true,
       webpackPreload: true
       */

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Style from './index.style.less'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useMatch, renderMatches } from 'react-router-dom'
 import Image from '@/Components/Image'
 import Logo from './logo.png'
 import { useTheme, THEME } from '@/Theme'
@@ -8,7 +8,11 @@ import create from 'zustand'
 import produce from 'immer'
 
 const item: { label?: string; link: string; descript?: string }[] = [
-  { label: 'Immer', link: '/immer', descript: '使用Immer不可变数据' },
+  {
+    label: 'Immer',
+    link: '/immer/others/123',
+    descript: '使用Immer不可变数据'
+  },
   { label: 'Grally', link: '/grally', descript: '图库' },
   { label: 'File', link: '/file', descript: '项目文件结构' },
   { label: 'Formily', link: '/Formily', descript: 'formily' }
@@ -57,6 +61,9 @@ const List = () => {
   const { imbears, imincreasePopulation, imremoveAllBears } = useImmerStore(
     (state) => state
   )
+  const af = useMatch('/immer/others/123')
+  console.log(JSON.stringify(af))
+  debugger
   return (
     <div className={Style.List}>
       <Image src={Logo} className={Style.logo} />
@@ -71,7 +78,7 @@ const List = () => {
         })}
       </ul>
       <hr />
-      <h1>zustand111</h1>
+      <h1>zustand</h1>
       <div>zustand async</div>
       <pre>
         <code>

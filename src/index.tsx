@@ -9,8 +9,8 @@ import Debugger from '@/Toolbox/debugger'
 import './global.less'
 import { enableAllPlugins } from 'immer'
 import { ThemeProvider } from '@/Theme'
-import * as Sentry from '@sentry/react'
-import { BrowserTracing } from '@sentry/tracing'
+// import * as Sentry from '@sentry/react'
+// import { BrowserTracing } from '@sentry/tracing'
 
 function FallbackComponent() {
   return <div>warning error</div>
