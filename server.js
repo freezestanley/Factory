@@ -3,7 +3,7 @@ const kill = require('kill-port')
 const WebpackDevServer = require('webpack-dev-server')
 const webpackConfig = require('./config/webpack.dev.config')
 const { merge } = require('webpack-merge')
-const port = 3000
+const port = 8000
 const config = merge(
   {
     entry: [

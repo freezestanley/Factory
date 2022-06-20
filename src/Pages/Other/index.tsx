@@ -41,7 +41,7 @@ export const AsyncImmer = lazy(
       webpackPrefetch: true,
       webpackPreload: true
       */
-      '@P/Immer'
+      '@/Pages/Immer'
     )
 )`}</code>
       </pre>

@@ -4,8 +4,8 @@ import { useRoutes, useLocation, useMatch } from 'react-router-dom'
 import Notfound from '@/Components/NotFound'
 import { RequireAuth } from './Auth'
 import Loading from '@/Components/Loading'
-import Lazy from '@P/Lazy'
-import Login from '@P/Login'
+import Lazy from '@/Pages/Lazy'
+import Login from '@/Pages/Login'
 import LayerRouter from './Layer'
 
 function result() {

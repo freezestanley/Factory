@@ -2,7 +2,6 @@ import React, { useEffect, useState, memo } from 'react'
 import classNames from 'classnames/bind'
 import Style from './index.style.less'
 import { Link } from 'react-router-dom'
-import KeepAlive from 'react-activation'
 import Grally from '@/Components/Grally'
 
 let cx = classNames.bind(Style)
@@ -123,62 +122,6 @@ const Book = () => {
       >
         on click post
       </div>
-      {/* {show && (
-        <KeepAlive>
-          <Counter />
-        </KeepAlive>
-      )}
-      <button onClick={() => setShow((show) => !show)}>Toggle</button>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <div>
-        <Link to={'/'}> index </Link>
-      </div>
-      <br />
-      <div>
-        <Link to={'/shop'}> shop </Link>
-      </div>
-      <br />
-      <div>
-        <Link to={'/team'}> team </Link>
-      </div>
-      <br />
-      <div>
-        <Link to={'/car'}> car </Link>
-      </div>
-      <br />
-      <div>
-        <Link to={'/asset'}> asset </Link>
-      </div>
-      <br />
-      <div>
-        <Link to={'/lazy'}> lazy </Link>
-      </div>
-      <div>
-        <Link to={'/swr'}> swr </Link>
-      </div>
-      <br />
-      <div onClick={GetHandler}>on click get</div>
-      <div
-        onClick={(e) => {
-          log()
-          PostHandler(e)
-        }}
-      >
-        on click post
-      </div>
-      this is book */}
     </div>
   )
 }

@@ -3,6 +3,7 @@ const BaseConfig = require('./webpack.base.config')
 const webpack = require('webpack')
 const path = require('path')
 const { ModuleFederationPlugin } = require('webpack').container
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const threadLoader = require('thread-loader') // 开启线程池预热
 const jsWorkerPool = {
   // options
@@ -45,6 +46,7 @@ module.exports = merge(BaseConfig, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
     new ModuleFederationPlugin({
       name: 'ccomponent',
       filename: 'remoteEntry.js',
@@ -52,5 +54,5 @@ module.exports = merge(BaseConfig, {
         '/Footer': './src/Components/Footer/index.tsx'
       }
     })
-  ]
+  ].filter(Boolean)
 })

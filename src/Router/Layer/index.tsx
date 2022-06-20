@@ -5,11 +5,11 @@ import Header from '@/Components/Header'
 import Footer from '@/Components/Footer'
 import { RequireAuth } from '../Auth'
 import Loading from '@/Components/Loading'
-import Home from '@P/Home'
-import List from '@P/List'
-import File from '@P/File'
-import Other from '@P/Other'
-import Formily from '@P/Formily'
+import Home from '@/Pages/Home'
+import List from '@/Pages/List'
+import File from '@/Pages/File'
+import Other from '@/Pages/Other'
+import Formily from '@/Pages/Formily'
 import {
   AsyncBook,
   AsyncShop,

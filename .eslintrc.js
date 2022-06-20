@@ -13,7 +13,8 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
-    mocha: true
+    mocha: true,
+    jest: true
   },
   parserOptions: {
     ecmaVersion: 9,

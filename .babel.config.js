@@ -1,6 +1,6 @@
 module.exports = {
   presets: [
-    ['@babel/preset-env', { targets: { node: 'current' }, modules: false }],
+    ['@babel/preset-env', { targets: { node: 'current' }, modules: true }],
     [
       '@babel/preset-react',
       {
@@ -24,7 +24,12 @@ module.exports = {
     '@babel/plugin-proposal-nullish-coalescing-operator',
     '@babel/plugin-proposal-throw-expressions',
     '@loadable/babel-plugin',
-    'react-activation/babel'
+    ["react-refresh/babel", { "skipEnvCheck": true }]
     // 'react-loadable/babel',
-  ]
+  ],
+  env: {
+    test: {
+      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    }
+  }
 }

@@ -1,4 +1,3 @@
-// import 'regenerator-runtime/runtime'
 import React from 'react'
 import ReactDom from 'react-dom'
 import { createRoot } from 'react-dom/client'
@@ -40,25 +39,29 @@ if (Mode === 'production') {
   //   tracesSampleRate: 1.0
   // })
   root.render(
-    // <Sentry.ErrorBoundary fallback={FallbackComponent} showDialog>
-    <BrowserRouter>
-      <AuthProvider>
-        <ThemeProvider>
-          <AppRouter />
-        </ThemeProvider>
-      </AuthProvider>
-    </BrowserRouter>
-    // </Sentry.ErrorBoundary>
+    <React.StrictMode>
+      {/* <Sentry.ErrorBoundary fallback={FallbackComponent} showDialog> */}
+      <BrowserRouter>
+        <AuthProvider>
+          <ThemeProvider>
+            <AppRouter />
+          </ThemeProvider>
+        </AuthProvider>
+      </BrowserRouter>
+      {/* // </Sentry.ErrorBoundary> */}
+    </React.StrictMode>
   )
 } else {
   root.render(
-    <BrowserRouter>
-      <AuthProvider>
-        <ThemeProvider>
-          <AppRouter />
-        </ThemeProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <React.StrictMode>
+      <BrowserRouter>
+        <AuthProvider>
+          <ThemeProvider>
+            <AppRouter />
+          </ThemeProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </React.StrictMode>
   )
 }
 

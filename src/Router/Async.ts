@@ -7,7 +7,7 @@ export const AsyncGrally = lazy(
       webpackPrefetch: true,
       webpackPreload: true
       */
-      `@P/Grally`
+      `@/Pages/Grally`
     )
 )
 export const AsyncImmer = lazy(
@@ -18,7 +18,7 @@ export const AsyncImmer = lazy(
       webpackPrefetch: true,
       webpackPreload: true
       */
-      `@P/Immer`
+      `@/Pages/Immer`
     )
 )
 export const AsyncBook = lazy(
@@ -29,7 +29,7 @@ export const AsyncBook = lazy(
       webpackPrefetch: true,
       webpackPreload: true
       */
-      `@P/Book`
+      `@/Pages/Book`
     )
 )
 export const AsyncShop = lazy(
@@ -40,7 +40,7 @@ export const AsyncShop = lazy(
       webpackPrefetch: true,
       webpackPreload: true
       */
-      `@P/Shop`
+      `@/Pages/Shop`
     )
 )
 export const AsyncTeam = lazy(
@@ -51,6 +51,6 @@ export const AsyncTeam = lazy(
       webpackPrefetch: true,
       webpackPreload: true
       */
-      `@P/Team`
+      `@/Pages/Team`
     )
 )

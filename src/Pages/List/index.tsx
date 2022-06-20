@@ -37,6 +37,7 @@ const useStore = create<zustandType>((set, get) => ({
 type Getter<T> = {
   [K in keyof T as `im${string & K}`]: T[K]
 }
+
 type zustandImType = Getter<zustandType>
 
 const useImmerStore = create<zustandImType>((set, get) => ({
@@ -78,7 +79,7 @@ const List = () => {
         })}
       </ul>
       <hr />
-      <h1>zustand11111</h1>
+      <h1>zustand</h1>
       <div>zustand async</div>
       <pre>
         <code>
@@ -257,7 +258,7 @@ export const AsyncImmer = lazy(
       webpackPrefetch: true,
       webpackPreload: true
       */
-      '@P/Immer'
+      '@/Pages/Immer'
     )
 )`}</code>
       </pre>

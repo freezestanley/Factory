@@ -79,8 +79,8 @@ module.exports = {
     rules: [
       {
         // test: /\.(js|jsx|tsx|mjs|ts)?$/i,
-        test: /\.(ts|js)x?$/,
-        exclude: [/node_modules/],
+        test: /\.[jt]sx?$/,
+        exclude: [/node_modules/, /public/, /(.|_)min\.js$/],
         use: [
           {
             loader: 'thread-loader',
