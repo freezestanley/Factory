@@ -125,7 +125,6 @@
     "svgo": "^2.8.0",
     "terser-webpack-plugin": "^5.3.3",
     "thread-loader": "^3.0.4",
-    "tinyimg-webpack-plugin": "^0.1.0",
     "tinyit": "^1.0.12",
     "ts-jest": "^28.0.5",
     "ts-node": "^10.8.1",

@@ -1,4 +1,10 @@
 import React from 'react'
+import Image from '@/Components/Image'
 
-const Card = () => <div>this is Card</div>
+const Card = () => (
+  <div>
+    <Image />
+    this is Card
+  </div>
+)
 export default Card

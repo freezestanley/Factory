@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Grally from '@/Components/Grally'
+import Footer from './index'
+import Card from '@/Components/Grally'
+import Book from '@P/Book'
 import React from 'react'
 
 const grally = [
@@ -19,9 +21,8 @@ const grally = [
   'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/kim-holtermand-power-station.jpg',
   'http://www.wallcoo.com/cartoon/Kitsunenoir_Design_Illustration_V/wallpapers/2560x1440/kim-holtermand-koncerthuset.jpg'
 ]
-
 test('renders learn react link', () => {
-  render(<Grally item={grally} />)
-  // const linkElement = screen.getByText(/111/i)
-  // expect(linkElement).toBeInTheDocument()
+  render(<Card item={grally} />)
+  const linkElement = screen.getByText(/123/i)
+  expect(linkElement).toBeInTheDocument()
 })
