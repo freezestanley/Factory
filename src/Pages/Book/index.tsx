@@ -18,7 +18,6 @@ function Counter(props: { children: React.ReactChild; name: string }) {
       <button
         onClick={() =>
           setCount((count) => {
-            debugger
             console.log(props.children)
             return count + 1
           })
@@ -43,7 +42,6 @@ const Book = () => {
   const GetHandler: React.MouseEventHandler<HTMLDivElement> = async (e) => {
     console.log('1111')
     setUserId(userId + 1)
-    debugger
     // eslint-disable-next-line babel/no-invalid-this
     console.log(this)
   }

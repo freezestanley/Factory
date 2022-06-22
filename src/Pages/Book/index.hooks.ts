@@ -1,7 +1,6 @@
 import { useRequest } from 'ahooks'
 import { Frequest } from '@/Toolbox'
 export const useUserRequest = (param: any) => {
-  debugger
   const { data, loading } = useRequest(
     () =>
       Frequest('/messages', {

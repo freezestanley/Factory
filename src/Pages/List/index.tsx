@@ -64,7 +64,6 @@ const List = () => {
   )
   const af = useMatch('/immer/others/123')
   console.log(JSON.stringify(af))
-  debugger
   return (
     <div className={Style.List}>
       <Image src={Logo} className={Style.logo} />
@@ -78,6 +77,29 @@ const List = () => {
           )
         })}
       </ul>
+      <hr />
+      <h1>Https</h1>
+      <div>基于mkcert</div>
+      <pre>
+        <code>
+          {`
+brew install mkcert
+mkcert -install // 初始化安装根证书
+mkcert 127.0.0.1 localhost
+// 需要https的host,可以多个
+
+devServer: {
+  ...
+  https: {
+    key: fs.readFileSync(path.resolve(__dirname,
+      "../https/127.0.0.1+1-key.pem")),
+    cert: fs.readFileSync(path.resolve(__dirname,
+      "../https/127.0.0.1+1.pem")),
+  },
+}
+`}
+        </code>
+      </pre>
       <hr />
       <h1>zustand</h1>
       <div>zustand async</div>

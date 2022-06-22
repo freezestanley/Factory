@@ -5,6 +5,7 @@ const path = require('path')
 const { ModuleFederationPlugin } = require('webpack').container
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const threadLoader = require('thread-loader') // 开启线程池预热
+const fs = require('fs')
 const jsWorkerPool = {
   // options
 
@@ -42,7 +43,11 @@ module.exports = merge(BaseConfig, {
     port: 9000,
     client: {
       progress: true
-    }
+    },
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, "../https/127.0.0.1+1-key.pem")),
+      cert: fs.readFileSync(path.resolve(__dirname, "../https/127.0.0.1+1.pem")),
+    },
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
