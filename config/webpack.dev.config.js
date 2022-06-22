@@ -45,8 +45,8 @@ module.exports = merge(BaseConfig, {
       progress: true
     },
     https: {
-      key: fs.readFileSync(path.resolve(__dirname, "../https/127.0.0.1+1-key.pem")),
-      cert: fs.readFileSync(path.resolve(__dirname, "../https/127.0.0.1+1.pem")),
+      key: fs.readFileSync(path.resolve(__dirname, "../__mocks__/https/127.0.0.1+1-key.pem")),
+      cert: fs.readFileSync(path.resolve(__dirname, "../__mocks__/https/127.0.0.1+1.pem")),
     },
   },
   plugins: [

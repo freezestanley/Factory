@@ -92,9 +92,9 @@ devServer: {
   ...
   https: {
     key: fs.readFileSync(path.resolve(__dirname,
-      "../https/127.0.0.1+1-key.pem")),
+      "../__mocks__/https/127.0.0.1+1-key.pem")),
     cert: fs.readFileSync(path.resolve(__dirname,
-      "../https/127.0.0.1+1.pem")),
+      "../__mocks__/https/127.0.0.1+1.pem")),
   },
 }
 `}
