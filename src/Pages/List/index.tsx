@@ -6,6 +6,7 @@ import Logo from './logo.png'
 import { useTheme, THEME } from '@/Theme'
 import create from 'zustand'
 import produce from 'immer'
+import Monorepo from '@packages/pk1'
 
 const item: { label?: string; link: string; descript?: string }[] = [
   {
@@ -284,7 +285,6 @@ export const AsyncImmer = lazy(
     )
 )`}</code>
       </pre>
-
       <a href="https://www.npmjs.com/package/@loadable/component">
         @loadable/component
       </a>
@@ -297,6 +297,8 @@ export const AsyncImmer = lazy(
         <br />
         修改webpack.prd.config.js sentry plugins
       </p>
+      ===================================
+      <Monorepo />
     </div>
   )
 }

@@ -1,0 +1,12 @@
+{
+  "name": "@packages/pk1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "jest --coverage --cache  --color"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

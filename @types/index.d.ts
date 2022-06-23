@@ -32,3 +32,4 @@ declare const Mode: string
 declare let module: {
   hot?: { accept: function }
 }
+declare module 'pk1'

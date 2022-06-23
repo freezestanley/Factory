@@ -1,0 +1,19 @@
+# http://editorconfig.org
+
+root = true
+
+# 对所有文件生效
+[*]                                 # 匹配所有的文件
+indent_style = space                # 空格缩进
+indent_size = 2                     # 缩进空格为2个
+end_of_line = lf                    # 文件换行符是 linux 的 `\n`
+charset = utf-8                     # 文件编码是 utf-8
+trim_trailing_whitespace = true     # 不保留行末的空格
+insert_final_newline = true         # 文件末尾添加一个空行
+curly_bracket_next_line = false     # 大括号不另起一行
+spaces_around_operators = true      # 运算符两遍都有空格
+indent_brace_style = 1tbs           # 条件语句格式是 1tbs
+
+# 对后缀名为 md 的文件生效
+[*.md]
+trim_trailing_whitespace = false
