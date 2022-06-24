@@ -134,7 +134,7 @@ devServer: {
       </p>
       <hr />
       <h1>缓存</h1>
-      <h3>PWA</h3>
+      <h3>Service worker</h3>
       <p>
         只在生产环境生效
         <br />
