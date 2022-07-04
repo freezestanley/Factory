@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dracula-theme.theme-dracula",
+    "dbaeumer.vscode-eslint",
+    "antfu.file-nesting",
+    "firsttris.vscode-jest-runner",
+    "oderwat.indent-rainbow",
+    "rvest.vs-code-prettier-eslint",
+    "formulahendry.code-runner",
+    "zenclabs.reactpreview"
+  ]
+}

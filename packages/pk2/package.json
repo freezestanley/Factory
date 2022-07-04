@@ -1,6 +1,6 @@
 {
-  "name": "@packages/pk1",
-  "version": "1.0.5",
+  "name": "@packages/pk2",
+  "version": "2.0.0",
   "description": "",
   "main": "index.tsx",
   "scripts": {

@@ -21,7 +21,9 @@
     "prepare": "husky install",
     "test": "jest --coverage --cache  --color",
     "precommit": "npm run lint:less && npm run lint:ts && npm run pretty:code",
-    "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules"
+    "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules",
+    "changeset": "changeset",
+    "changeset:version": "changeset version"
   },
   "repository": {
     "type": "git",
@@ -54,6 +56,7 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@loadable/babel-plugin": "^5.13.2",
     "@loadable/webpack-plugin": "^5.15.2",
+    "@packages/pk1": "workspace:^1.0.4",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@sentry/react": "^7.1.1",
     "@sentry/tracing": "^7.1.1",
@@ -147,7 +150,6 @@
   },
   "dependencies": {
     "@loadable/component": "^5.15.2",
-    "@packages/pk1": "workspace:^1.0.0",
     "@types/js-cookie": "^3.0.2",
     "@types/loadable__component": "^5.13.4",
     "ahooks": "^3.5.0",

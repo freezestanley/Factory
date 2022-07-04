@@ -64,3 +64,14 @@ pnpm install rollup -wD
 
 --filter 参数跟着的是package下的 package.json 的 name 字段，并不是目录名
 
+
+```
+
+pnpm add -Dw @changesets/cli // 安装
+pnpm changeset init // 初始化
+
+changeset 
+pnpm changeset version
+
+pnpm publish -r
+```

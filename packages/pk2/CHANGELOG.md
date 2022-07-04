@@ -1,5 +1,15 @@
 # @packages/pk1
 
+## 2.0.0
+
+### Major Changes
+
+- pk2
+
+### Patch Changes
+
+- pk2
+
 ## 1.0.5
 
 ### Patch Changes
