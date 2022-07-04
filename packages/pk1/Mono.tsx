@@ -7,6 +7,7 @@ const Mono = () => (
     <pre>
       <code>packages 子包</code>
     </pre>
+    <div>this is Monorepo</div>
   </div>
 )
 
