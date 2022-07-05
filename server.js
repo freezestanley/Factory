@@ -2,8 +2,9 @@ const Webpack = require('webpack')
 const kill = require('kill-port')
 const WebpackDevServer = require('webpack-dev-server')
 const webpackConfig = require('./config/webpack.dev.config')
+
 const { merge } = require('webpack-merge')
-const port = 8000
+const port = webpackConfig.devServer.port
 const config = merge(
   {
     entry: [
@@ -16,25 +17,22 @@ const config = merge(
 )
 const compiler = Webpack(config)
 const devServerOptions = {
-  hot: true,
-  ...{
-    open: true,
-    compress: true
-  },
+  open: true,
+  compress: true,
   ...webpackConfig.devServer
 }
+
+const server = new WebpackDevServer(devServerOptions, compiler)
+const runServer = async () => {
+  console.log(`Starting server port:${port}...`)
+  await server.start()
+}
+
 kill(port, 'tcp')
   .then((resolve, reject) => {
-    const server = new WebpackDevServer(
-      { hot: true, open: true, compress: true },
-      compiler
-    )
-    const runServer = async () => {
-      console.log(`Starting server port:${port}...`)
-      await server.start()
-    }
     runServer()
   })
   .catch((e) => {
     console.error(`Starting server fail ${e}`)
+    runServer()
   })
